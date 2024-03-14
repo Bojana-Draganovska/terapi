@@ -1,0 +1,7 @@
+.mainMoodCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 30px;
+    flex-wrap: nowrap;
+  }

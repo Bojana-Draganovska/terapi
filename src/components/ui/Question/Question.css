@@ -1,0 +1,37 @@
+.questionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.questionBox img {
+    width: 50px;
+    height: 50px;
+    padding-bottom: 20px;
+}
+
+.questionBox span{
+    font-style: italic;
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+.questionBox h3 {
+    font-weight: bold;
+    font-size: 36px;
+    padding-bottom: 10px;
+}
+
+.breathSpan {
+    font-style: italic;
+    font-size: 18px !important; 
+}
+
+.aboutUs {
+    font-size: 13px !important; 
+    font-weight: 500 !important;
+    color: black !important;
+
+}
