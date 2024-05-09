@@ -12,6 +12,9 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import InformativeCorner from "./pages/InformativeCorner/InformativeCorner";
 // Styles
 import "./index.css";
+import MentalCondition from "./pages/MentalCondition/MentalCondition";
+import BreathingCondition from "./pages/BreathingCondition/BreathingCondition";
+import FAQ from "./pages/FAQ/FAQ";
 
 
 
@@ -26,6 +29,9 @@ root.render(
       <Route path="/mental-health" element={<MentalHealth />} />
       <Route path="/breathing" element={<BreathingTech />} />
       <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/health-selected" element={<MentalCondition/>} />
+      <Route path="/breathing-tech" element={<BreathingCondition/>} />
+      <Route path="/faq" element={<FAQ/>}/>
       <Route path="/info-corner" element={<InformativeCorner />} />
     </Routes>
   </BrowserRouter>

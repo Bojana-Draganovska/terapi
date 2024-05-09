@@ -1,0 +1,18 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: 20%;
+    position: relative;
+    top: 3%;
+    left: 30%;
+}
+.text{
+    width: 150%;
+    padding-bottom: 10px;
+    font-size: 30px;
+}
+.btnLogin{
+    width: 40%;
+}
