@@ -11,13 +11,21 @@ import data from "../../data.json"
 import "../MentalHealth/MentalHealth.css";
 
 function MentalHealth() {
-  const [fakeData, setFakeData] = useState(data);
-  console.log(fakeData);
+  // const [fakeData, setFakeData] = useState(data);
+  // console.log(fakeData);
+
+  // <MoodCardsLayout fakeData = {fakeData} setFakeData={setFakeData}/>
   return (
     <>
       <NavBar />
       <Question submain={"се борам со"} main={""} />
-        <MoodCardsLayout fakeData = {fakeData} setFakeData={setFakeData}/>
+      <MoodCardsLayout
+        anxietyfeel={"Aнксиозност"}
+        anxietyimg={"assets/icons/anxiety.svg"}
+        angerfeel={"Изгубено"}
+        angerimg={"assets/icons/lost.svg"}
+        depressionfeel={"Депресија"}
+        depressionimg={"assets/icons/depression.svg"} />
     </>
   );
 }
