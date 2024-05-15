@@ -1,21 +1,41 @@
 //UI
+import { useParams } from "react-router-dom";
 import Title from "../../ui/Title/Title";
 //Style
 import "../MentalConditionWidget/MentalConditionWidget.css"
+import { useEffect, useState } from "react";
+import data from "../../../data.json"
 
 function MentalConditionWidget() {
+  const {widgetId} = useParams();
+  const [widgetData, setWidgetData] = useState([]);
+
+  // useEffect(() => {
+  //   fetchWidgetData(widgetId);
+  // }, [widgetId]);
+
+  useEffect(() =>{
+    setWidgetData(data);
+  })
+  // const fetchWidgetData = async (id) => {
+  //   try {
+  //     const response = await fetch(`/data/${id}.json`);
+  //     const data = await response.json();
+  //     setWidgetData(data);
+  //   } catch (error) {
+  //     console.error('Error fetching widget data:', error);
+  //   }
+  console.log(widgetData);
+  // };
     return (
         <>
-            <Title className="title" img="assets/icons/vector.svg" title="Анксиозност" />
-            <div className="mentalCondition">
-                <img className="mentalConditionImage" src="assets/images/anxiety.jpg" />
-                <div className="mentalConditionInfo">
-                    <p>Анксиозност преставува чувство на страв и несигурност и е нормална реакција кога луѓето се справуваат со стресни ситуации или предизвици. Чувството на анксиозност доколку остане подолго време може лесно да премине на физички реакции.</p>
-                    <p>Луѓето што се соочуваат со анксиозност имаат чувство дека немаат контрола над ситуацијата и ќе морат веднаш да донесат важна одлука за самите себеси без да имаат самодоверба и на тој начин им предизвикува на луѓето потешко да донесат одлуки бидејќи не знаат дали таа одлука е правилна за самите себеси.</p>
-                    <p>Друг вид на анксиозност е кога луѓето имаат секогаш претчувство дека нешто ќе се случи во зависност од нивните одлуки и се чувствуваат загушени односно немаат здив.</p>
-                    <p>Постојат симптоми каде што не смееме да ги игнорираме кога се справуваме со анксиозност а тие се: постојано повторување на исти мисли кои ги гледаат како катастрофални, пренагласени стравови, неспособност за спиење бидејќи нашиот мозок не сака да биде вклучен, проблеми со дигестивниот систем, панични напади и многу други.</p>
-                </div>
+            <Title className="title" img="assets/icons/vector.svg" title={widgetData.title} />
+            {widgetData && (
+              <div className="mentalCondition">
+                <img className="mentalConditionImage" src={widgetData.img} />
+                <div className="mentalConditionInfo">{widgetData.descriptipon}</div>
             </div>
+            )}
         </>
     )
 }
