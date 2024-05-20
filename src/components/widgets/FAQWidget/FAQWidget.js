@@ -8,7 +8,7 @@ function FAQWidget(props) {
                 <img className="imgFrame" src="assets/images/frame.jpg" />
             </div>
             <div className="faqWidget">
-                <h3 className="quastion">{props.quastion}</h3>
+                <h3 className="question">{props.question}</h3>
                 <ul className="answer">
                     <li>{props.answer}</li>
                 </ul>

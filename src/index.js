@@ -33,7 +33,7 @@ root.render(
       <Route path="/mental-health" element={<MentalHealth />} />
       <Route path="/breathing" element={<BreathingTech />} />
       <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/health-selected/:id" element={<MentalCondition/>} />
+      <Route path="/health-selected" element={<MentalCondition/>} />
       <Route path="/breathing-tech" element={<BreathingCondition/>} />
       <Route path="/faq" element={<FAQ/>}/>
       <Route path="/info-corner" element={<InformativeCorner />} />

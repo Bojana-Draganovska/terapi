@@ -9,7 +9,7 @@ import "../../../data.json"
 
 function MoodCard(props) {
   return (
-    <div className="moodCard" onClick={() => console.log("id")}>
+    <div className="moodCard" onClick={() => console.log("s")}>
       <div className="moodCardText">
         <p className="imfeeling">{props.imfeeling}</p>
         <span className="feel">{props.feel}</span>
