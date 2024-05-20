@@ -1,0 +1,26 @@
+.title h3 {
+    font-size: 30px;
+}
+
+.title img{
+    width: 4%;
+}
+
+.mentalCondition{
+    display: flex;
+    justify-content: space-between;
+}
+
+.mentalConditionImage{
+    display: flex;
+    border-radius: 20px;
+    width: 30%;
+    height: 30%;
+}
+.mentalConditionInfo{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 67%;
+    font-size: 15px;
+}

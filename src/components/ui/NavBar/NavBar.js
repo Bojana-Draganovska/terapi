@@ -14,7 +14,7 @@ function NavBar() {
             <Link to={"/mental-health"}>Ментално здравје</Link>
             <Link to={"/breathing"}>Техники за дишење</Link>
             <Link to={"/about-us"}>За нас</Link>
-            <Link>FAQ</Link>
+            <Link to={"/faq"}>FAQ</Link>
             <Button content={"Најава"} />
         </div>
     )
