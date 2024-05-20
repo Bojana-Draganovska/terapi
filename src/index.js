@@ -10,8 +10,12 @@ import MentalHealth from "./pages/MentalHealth/MentalHealth";
 import BreathingTech from "./pages/BreathingTech/BreathingTech";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import InformativeCorner from "./pages/InformativeCorner/InformativeCorner";
+import Registration from "./pages/Registration/Registration";
+import Login from "./pages/Login/Login";
 // Styles
 import "./index.css";
+
+
 
 
 
@@ -27,6 +31,8 @@ root.render(
       <Route path="/breathing" element={<BreathingTech />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/info-corner" element={<InformativeCorner />} />
+      <Route path="/registration" element={<Registration />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   </BrowserRouter>
 );

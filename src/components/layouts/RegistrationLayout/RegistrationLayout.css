@@ -1,0 +1,27 @@
+.form-container { 
+    width: 40%;
+    margin-top: 100px;
+    height: auto;
+}
+
+
+#flower {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    bottom: 0;
+
+}
+
+.registrationbtns {
+    width: 60%;
+    margin-top: 100px;
+    padding-left: 100px;
+}
+
+.registration-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+

@@ -1,5 +1,6 @@
-// Styles
+// React
 import { Link } from "react-router-dom";
+// Styles
 import "../MoodCard/MoodCard.css";
 
 

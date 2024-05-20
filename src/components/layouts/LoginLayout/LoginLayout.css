@@ -1,0 +1,36 @@
+.form-container { 
+    width: 40%;
+    margin-top: 100px;
+    height: auto;
+}
+
+
+#flower {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    bottom: 0;
+
+}
+
+.haveaccount {
+    width: 60%;
+    margin-top: 100px;
+    padding-left: 100px;
+    
+}
+
+.haveaccount label { 
+    align-items: center;
+}
+
+.haveaccount input {
+    width: 50%;
+}
+
+.login-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
