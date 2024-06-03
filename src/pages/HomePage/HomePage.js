@@ -12,18 +12,15 @@ function HomePage() {
     <div className="container">
       <NavBar />
       <div>
-        {/* {if()} */}
-      {/* <Question submain={'Дозволете ни да ве водиме'} main={'Како се чуствуваш?'}/>
+       <Question submain={'Дозволете ни да ве водиме'} main={'Како се чуствуваш?'}/>
       <MoodCardsLayout
           anxietyfeel={"Aнксиозност"}
           anxietyimg={"assets/icons/anxiety.svg"}
           angerfeel={"Изгубено"}
           angerimg={"assets/icons/lost.svg"}
           depressionfeel={"Депресија"}
-          depressionimg={"assets/icons/depression.svg"} */}
-        {/* /> */}
-        {/* {else()} */}
-        <QuestionLayout />
+          depressionimg={"assets/icons/depression.svg"}
+        />
         </div>
     </div>
   );

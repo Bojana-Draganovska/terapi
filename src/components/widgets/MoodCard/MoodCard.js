@@ -1,15 +1,13 @@
 // React
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 // Styles
 import "../MoodCard/MoodCard.css";
-//Data
-import "../../../data.json"
-
-
+import { useState, useEffect } from "react";
 
 function MoodCard(props) {
+ 
   return (
-    <div className="moodCard" onClick={() => console.log("s")}>
+    <div className="moodCard" onClick={() => console.log("S")}>
       <div className="moodCardText">
         <p className="imfeeling">{props.imfeeling}</p>
         <span className="feel">{props.feel}</span>

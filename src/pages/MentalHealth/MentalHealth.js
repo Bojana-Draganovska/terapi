@@ -5,8 +5,6 @@ import NavBar from "../../components/ui/NavBar/NavBar";
 import Question from "../../components/ui/Question/Question";
 // Layouts
 import MoodCardsLayout from "../../components/layouts/MoodCardsLayout/MoodCardsLayout";
-// Data
-import data from "../../data.json"
 // Styles
 import "../MentalHealth/MentalHealth.css";
 
@@ -22,8 +20,8 @@ function MentalHealth() {
       <MoodCardsLayout
         anxietyfeel={"Aнксиозност"}
         anxietyimg={"assets/icons/anxiety.svg"}
-        angerfeel={"Изгубено"}
-        angerimg={"assets/icons/lost.svg"}
+        angerfeel={"Менаџирање со гневот"}
+        angerimg={"assets/icons/anger.svg"}
         depressionfeel={"Депресија"}
         depressionimg={"assets/icons/depression.svg"} />
     </>
