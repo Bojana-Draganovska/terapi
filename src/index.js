@@ -21,9 +21,6 @@ import FAQ from "./pages/FAQ/FAQ";
 
 
 
-
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
@@ -34,7 +31,7 @@ root.render(
       <Route path="/breathing" element={<BreathingTech />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/health-selected/:title" element={<MentalCondition/>} />
-      <Route path="/breathing-tech" element={<BreathingCondition/>} />
+      <Route path="/breathing-tech/:title" element={<BreathingCondition/>} />
       <Route path="/faq" element={<FAQ/>}/>
       <Route path="/info-corner" element={<InformativeCorner />} />
       <Route path="/registration" element={<Registration />} />

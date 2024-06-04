@@ -1,4 +1,5 @@
 //UI
+import { useParams } from "react-router-dom";
 import Button from "../../ui/Button/Button";
 //Widgets
 import MentalConditionWidget from "../../widgets/MentalConditionWidget/MentalConditionWidget";
@@ -6,11 +7,23 @@ import MentalConditionWidget from "../../widgets/MentalConditionWidget/MentalCon
 import "../MentalConditionLayout/MentalConditionLayout.css"
 
 import { useEffect, useState } from "react";
+import data from "../../../dataSrc.json";
 
 function MentalConditionLayout() {
+    const {title} = useParams();
+    const [currentCondition, setCurrentCondition] = useState(null);
+
+    useEffect(() => {
+        const condition = data.find(item => item.title === title);
+        if(condition){
+            setCurrentCondition(condition);
+        }
+    }, [title]);
     return (
         <>
-            <MentalConditionWidget/>
+        {currentCondition && (
+              <MentalConditionWidget title={currentCondition.title} image={currentCondition.image} description={currentCondition.description}/>
+        )}
             <div className="footer">
                 <span className="text">за да ги искористите сите бенефити од апликацијата ве молиме</span>
                 <Button classname="btnLogin" content={"најавете се"} />
