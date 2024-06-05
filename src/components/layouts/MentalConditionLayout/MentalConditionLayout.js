@@ -5,12 +5,12 @@ import MentalConditionWidget from "../../widgets/MentalConditionWidget/MentalCon
 //Style
 import "../MentalConditionLayout/MentalConditionLayout.css"
 
-import { useEffect, useState } from "react";
 
-function MentalConditionLayout() {
+
+function MentalConditionLayout(props) {
     return (
         <>
-            <MentalConditionWidget/>
+            <MentalConditionWidget tittle={props.title} img={props.img} description={props.description}/>
             <div className="footer">
                 <span className="text">за да ги искористите сите бенефити од апликацијата ве молиме</span>
                 <Button classname="btnLogin" content={"најавете се"} />

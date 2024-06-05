@@ -1,12 +1,26 @@
+// React
+import { useState, useEffect } from "react";
 // UI
 import NavBar from "../../components/ui/NavBar/NavBar";
 import Question from "../../components/ui/Question/Question";
+import MoodCard from "../../components/widgets/MoodCard/MoodCard";
 // Layouts
 import MoodCardsLayout from "../../components/layouts/MoodCardsLayout/MoodCardsLayout";
 // Styles
 import "../BreathingTech/BreathingTech.css";
 
 function BreathingTech() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("/data.json")
+    .then((response) => response.json())
+    .then((data) => setData(data))
+    .catch((error) => console.error('Error fetching data:', error));
+  }, []);
+
+
   return (
     <>
       <NavBar />
@@ -18,14 +32,11 @@ function BreathingTech() {
         style={{color: '#0989FF'}}
         classname={"breathSpan"}
       />
-      <MoodCardsLayout
-        anxietyfeel={"Deep Belly Breathing (Diaphragmatic Breathing)"}
-        anxietyimg={"assets/icons/deepbelly.svg"}
-        angerfeel={"4-7-8 Breathing"}
-        angerimg={"assets/icons/478breathing.svg"}
-        depressionfeel={"Box Breathing (Square Breathing)"}
-        depressionimg={"assets/icons/boxbreathing.svg"}
-      />
+      <div className="breathing-options">
+      {data.slice(3,6).map((item) => 
+        <MoodCard feel={item.title} img={item.icon}/>
+      ) }
+      </div>
     </>
   );
 }

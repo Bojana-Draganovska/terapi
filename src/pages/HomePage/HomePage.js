@@ -13,14 +13,14 @@ function HomePage() {
       <NavBar />
       <div>
        <Question submain={'Дозволете ни да ве водиме'} main={'Како се чуствуваш?'}/>
-      <MoodCardsLayout
+      {/* <MoodCardsLayout
           anxietyfeel={"Aнксиозност"}
           anxietyimg={"assets/icons/anxiety.svg"}
           angerfeel={"Изгубено"}
           angerimg={"assets/icons/lost.svg"}
           depressionfeel={"Депресија"}
           depressionimg={"assets/icons/depression.svg"}
-        />
+        /> */}
         </div>
     </div>
   );
