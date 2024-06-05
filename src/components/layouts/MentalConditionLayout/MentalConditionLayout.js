@@ -1,5 +1,5 @@
 //UI
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Button from "../../ui/Button/Button";
 //Widgets
 import MentalConditionWidget from "../../widgets/MentalConditionWidget/MentalConditionWidget";
@@ -26,7 +26,7 @@ function MentalConditionLayout() {
         )}
             <div className="footer">
                 <span className="text">за да ги искористите сите бенефити од апликацијата ве молиме</span>
-                <Button classname="btnLogin" content={"најавете се"} />
+                <Link to={"/login"}><Button classname="btnLogin" content={"најавете се"}/></Link>
             </div>
 
         </>

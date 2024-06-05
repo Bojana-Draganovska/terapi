@@ -6,7 +6,7 @@ import BreathingConditionWidget from "../../widgets/BreathingConditionWidget/Bre
 import "../BreathingConditionLayout/BreathingConditionLayout.css"
 //Data
 import data from "../../../dataSrc.json";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function BreathingConditionLayout(){
@@ -26,7 +26,7 @@ function BreathingConditionLayout(){
         )}
             <div className="footer">
                 <span className="text">за да ги искористите сите бенефити од апликацијата ве молиме</span>
-                <Button classname="btnLogin" content={"најавете се"} />
+                <Link to={"/login"}><Button classname="btnLogin" content={"најавете се"} /></Link>
             </div>
         </>
     )
