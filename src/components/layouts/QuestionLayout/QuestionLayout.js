@@ -42,7 +42,7 @@ function QuestionLayout() {
           </>
         ) : (
           <>
-          <div key={currentQuestioN.id} onClick={() => handleNextQuestion()}>
+          <div key={currentQuestioN.id}>
             <Question submain={currentQuestioN.quation} />
           </div>
           <div className="bigLine"></div>

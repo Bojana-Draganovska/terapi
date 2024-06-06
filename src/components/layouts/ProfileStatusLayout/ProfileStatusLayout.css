@@ -1,0 +1,29 @@
+.profileStatusLayout{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60%;
+    width: 100%;
+    position: relative;
+    left: 46%;
+    top: 1%;
+}
+.imgFrame1{
+    width: 6%;
+    position: relative;
+    top: 10%;
+    left: 3%;
+}
+.imgFrame2{
+    width: 6%;
+    position: relative;
+    top: 10%;
+    left: 46%;
+    transform: rotate(40deg);
+}
+.imgFrame3{
+    width: 6%;
+    position: relative;
+    top: 10%;
+    left: 3%;
+}

@@ -17,6 +17,7 @@ import "./index.css";
 import MentalCondition from "./pages/MentalCondition/MentalCondition";
 import BreathingCondition from "./pages/BreathingCondition/BreathingCondition";
 import FAQ from "./pages/FAQ/FAQ";
+import MyProfile from "./pages/MyProfile/MyProfile";
 
 
 
@@ -36,6 +37,7 @@ root.render(
       <Route path="/info-corner" element={<InformativeCorner />} />
       <Route path="/registration" element={<Registration />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/my-profile" element={<MyProfile/>}/>
     </Routes>
   </BrowserRouter>
 );

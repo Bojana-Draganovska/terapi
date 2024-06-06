@@ -1,0 +1,8 @@
+.profileStatus{
+    border: 1px solid black;
+    border-radius: 15px;
+    font-size: 15px;
+    padding-top: 40px;
+    width: 55%;
+    height: 70%;
+}
