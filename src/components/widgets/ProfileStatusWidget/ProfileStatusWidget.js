@@ -5,7 +5,7 @@ function ProfileStatusWidget(props) {
     return (
         <>
             <div className={`${props.className ? props.className : ''}`}>
-                <p className="profileStatus">{props.status}</p>
+                <p className={`profileStatus ${props.style ? props.style : ''}`}>{props.status}</p>
             </div>
         </>
     )

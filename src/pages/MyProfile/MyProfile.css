@@ -1,12 +1,6 @@
 .profileContainer{
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-.profileWidgetStatus{
-    position: absolute;
-    top: 26%;
-    left: 13%;
-    width: 50%;
-    height: 70%;
+    height: 80%;
+    width: 100%;
 }
