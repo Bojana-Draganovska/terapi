@@ -1,11 +1,10 @@
 // React
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 // Styles
 import "../MoodCard/MoodCard.css";
 import { useState, useEffect } from "react";
 
 function MoodCard(props) {
- 
   return (
     <div className="moodCard" onClick={props.handleClick}>
       <div className="moodCardText">

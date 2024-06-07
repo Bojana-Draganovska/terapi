@@ -1,0 +1,79 @@
+.profileStatusLayout{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80%;
+    width: 100%;
+    position: relative;
+    left: 46%;
+    top: 1%;
+}
+.profileWidgetStatus{
+    position: absolute;
+    top: 15%;
+    left: -35%;
+    width: 40%;
+    height: 120%;
+    font-size: 20px;
+}
+.categoryWidget{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 90%;
+    height: 60%;
+    position: relative;
+    bottom: 5%;
+    right: 5%;
+}
+
+.categorywidgets{
+    height: 100px;
+    padding: 30px;
+}
+
+.profileWidgetsStatus{
+    width: 120%;
+    padding: 20px;
+    position: relative;
+    bottom: 90px;
+    font-weight: bolder;
+}
+.imgFrame1{
+    width: 6%;
+    position: relative;
+    top: 26%;
+    right: 45%;
+}
+.imgFrame2{
+    width: 6%;
+    position: relative;
+    top: 26%;
+    right: 9%;
+    transform: rotate(40deg);
+}
+.imgFrame3{
+    width: 6%;
+    position: relative;
+    top: 26%;
+    right: 45%;
+}
+.imgFrames{
+    width: 50%;
+    height: 110%;
+    transform: rotate(40deg);
+    position: relative;
+    top: 10px;
+    left: 120px;
+    z-index: 1;
+}
+.imgFramee{
+    position: fixed;
+    left: 70%;
+    top: 57%;
+    height: 50%;
+}
+.styles{
+    font-size: 30px;
+    padding: 50px;
+}

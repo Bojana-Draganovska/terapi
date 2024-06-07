@@ -1,0 +1,6 @@
+.profileContainer{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 100%;
+}

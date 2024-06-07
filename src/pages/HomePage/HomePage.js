@@ -6,22 +6,40 @@ import MoodCardsLayout from "../../components/layouts/MoodCardsLayout/MoodCardsL
 import QuestionLayout from "../../components/layouts/QuestionLayout/QuestionLayout";
 // Styles
 import "./HomePage.css";
+import { useState } from "react";
 
 function HomePage() {
+  const [showMoodCards, setShowMoodCards] = useState(true);
+
+  const handleMoodCardClick = () => {
+    setShowMoodCards(false);
+  }
+
+  console.log(handleMoodCardClick);
   return (
     <div className="container">
       <NavBar />
       <div>
-       <Question submain={'Дозволете ни да ве водиме'} main={'Како се чуствуваш?'}/>
-      {/* <MoodCardsLayout
-          anxietyfeel={"Aнксиозност"}
-          anxietyimg={"assets/icons/anxiety.svg"}
-          angerfeel={"Изгубено"}
-          angerimg={"assets/icons/lost.svg"}
-          depressionfeel={"Депресија"}
-          depressionimg={"assets/icons/depression.svg"}
-        /> */}
-        </div>
+        {showMoodCards ? (
+          <>
+            <Question submain={'Дозволете ни да ве водиме'} main={'Како се чувствуваш?'} />
+            <div className="bigLine"></div>
+            <MoodCardsLayout
+              anxietyfeel={"Aнксиозност"}
+              anxietyimg={"/assets/icons/anxiety.svg"}
+              angerfeel={"Изгубено"}
+              angerimg={"/assets/icons/lost.svg"}
+              depressionfeel={"Депресија"}
+              depressionimg={"/assets/icons/depression.svg"}
+              onMoodCardClick={handleMoodCardClick}
+            />
+          </>
+        ) : (
+          <>
+            <QuestionLayout/>
+          </>
+        )}
+      </div>
     </div>
   );
 }

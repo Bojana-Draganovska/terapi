@@ -1,24 +1,19 @@
 //UI
 import Title from "../../ui/Title/Title";
 //Style
-import "../MentalConditionWidget/MentalConditionWidget.css";
-
-import { useLocation } from "react-router-dom";
+import "../MentalConditionWidget/MentalConditionWidget.css"
 
 function MentalConditionWidget(props) {
-  const location = useLocation();
-  const { title, img, description } = location.state || {};
 
+  const descriptionParagraphs = props.description.split('\n').map((text, index) => (
+    <p key={index}>{text}</p>
+  ));
   return (
     <>
+    <Title className="title" img="/assets/icons/vector.svg" title={props.title} />
       <div className="mentalCondition">
-        <Title
-          className="title"
-          img="assets/icons/vector.svg"
-          title={title}
-        />
-        <img className="mentalConditionImage" src={img} />
-        <div className="mentalConditionInfo">{description}</div>
+        <img className="mentalConditionImage" src={props.image} alt={props.title}/>
+        <div className="mentalConditionInfo">{descriptionParagraphs}</div>
       </div>
     </>
   );

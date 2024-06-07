@@ -1,0 +1,8 @@
+.answerMoodCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 30px;
+    flex-wrap: nowrap;
+    padding-top: 5%;
+  }
