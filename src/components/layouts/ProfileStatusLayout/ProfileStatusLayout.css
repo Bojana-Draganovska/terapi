@@ -1,20 +1,35 @@
 .profileStatusLayout{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content:baseline;
     height: 80%;
-    width: 100%;
+    width: 65%;
     position: relative;
     left: 46%;
-    top: 1%;
+    top: 10%;
+    overflow-x: hidden;
 }
 .profileWidgetStatus{
     position: absolute;
-    top: 15%;
-    left: -35%;
-    width: 40%;
-    height: 120%;
-    font-size: 20px;
+    top: 29%;
+    right: 37%;
+    width: 50%;
+    height: 70%;
+}
+.styleWidget1{
+    position: relative;
+    top: 40px;
+    width: 180%;
+}
+.styleWidget2{
+    position: relative;
+    top: 45px;
+    width: 180%;
+}
+.styleWidget3{
+    position: relative;
+    top: 50px;
+    width: 180%;
 }
 .categoryWidget{
     display: flex;
@@ -23,13 +38,13 @@
     width: 90%;
     height: 60%;
     position: relative;
-    bottom: 5%;
+    bottom: 10%;
     right: 5%;
 }
 
 .categorywidgets{
     height: 100px;
-    padding: 30px;
+    padding: 20px;
 }
 
 .profileWidgetsStatus{
@@ -40,40 +55,77 @@
     font-weight: bolder;
 }
 .imgFrame1{
-    width: 6%;
-    position: relative;
-    top: 26%;
-    right: 45%;
+    width: 10%;
+    position: absolute;
+    bottom: 84%;
+    right: 87%;
+    z-index: 1;
 }
 .imgFrame2{
-    width: 6%;
-    position: relative;
+    width: 10%;
+    position: absolute;
     top: 26%;
-    right: 9%;
+    left: 70%;
     transform: rotate(40deg);
+    z-index: 1;
 }
 .imgFrame3{
-    width: 6%;
-    position: relative;
-    top: 26%;
-    right: 45%;
+    width: 10%;
+    position: absolute;
+    top: 50%;
+    right: 87%;
+    z-index: 1;
+}
+.imgFrame2_1{
+    width: 20%;
+    position: absolute;
+    bottom: 60%;
+    left: 83%;
+    transform: rotate(40deg);
+    z-index: 1;
 }
 .imgFrames{
-    width: 50%;
-    height: 110%;
+    width: 40%;
+    height: 100%;
     transform: rotate(40deg);
     position: relative;
-    top: 10px;
-    left: 120px;
+    top: 25px;
+    left: 110.5px;
     z-index: 1;
 }
 .imgFramee{
     position: fixed;
-    left: 70%;
+    left: 75%;
     top: 57%;
     height: 50%;
 }
 .styles{
     font-size: 30px;
     padding: 50px;
+    font-weight: bolder;
+}
+.style1{
+    width: 45%;
+    font-size: 25px;
+    font-weight: lighter;
+    position: relative;
+    left: 10px;
+    bottom: 65%;
+}
+.selectedDayStatus{
+    position: relative;
+    top: 3%;
+    left: 25%;
+    width: 150%;
+    height: 100%;
+}
+.btnFinish{
+    position: relative;
+    bottom: 20%;
+    left: 9.5%;
+    border: none;
+    background-color: #F2DFD1;
+    color: #DD1E85;
+    width: 40%;
+    font-size: 20px;
 }

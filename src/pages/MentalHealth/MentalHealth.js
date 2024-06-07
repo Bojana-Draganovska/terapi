@@ -9,10 +9,7 @@ import MoodCardsLayout from "../../components/layouts/MoodCardsLayout/MoodCardsL
 import "../MentalHealth/MentalHealth.css";
 
 function MentalHealth() {
-  // const [fakeData, setFakeData] = useState(data);
-  // console.log(fakeData);
-
-  // <MoodCardsLayout fakeData = {fakeData} setFakeData={setFakeData}/>
+ 
   return (
     <>
       <NavBar />
