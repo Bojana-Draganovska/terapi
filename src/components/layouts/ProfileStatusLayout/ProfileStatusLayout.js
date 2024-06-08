@@ -5,6 +5,7 @@ import Title from "../../ui/Title/Title";
 import ProfileStatusWidget from "../../widgets/ProfileStatusWidget/ProfileStatusWidget";
 import "../ProfileStatusLayout/ProfileStatusLayout.css";
 import statusData from "../../../status.json";
+import { Link } from "react-router-dom";
 
 function ProfileStatusLayout(props) {
     const [selectedTitle, setSelectedTitle] = useState("");
@@ -53,7 +54,6 @@ function ProfileStatusLayout(props) {
     
     const handleCompleteAndBackClick = () => {
         if (selectedDay !== null) {
-            // Complete the selected day
             setCompletedDays((prev) => ({
                 ...prev,
                 [selectedTitle]: {
@@ -61,7 +61,7 @@ function ProfileStatusLayout(props) {
                     [selectedDay]: true,
                 },
             }));
-            setSelectedDay(null); // Go back to the list of days (the widgets)
+            setSelectedDay(null); 
         }
     };
 
@@ -71,7 +71,7 @@ function ProfileStatusLayout(props) {
             <div key={dayData.id} className="dayDetail">
                 <img className="imgFrame2_1" src="assets/images/frame.jpg" alt="imgFrame2" />
                 <ProfileStatusWidget key={dayData.id} className="selectedDayStatus" style="styles" style1="style1" status={dayData.naslov} description={dayData.descrition}/>
-                <Button classname="btnFinish" content={"завршено"} onClick={handleCompleteAndBackClick}/>
+                <Link onClick={handleCompleteAndBackClick}><Button classname="btnFinish" content={"завршено"}/></Link>
             </div>
         ) : (
             <div>Day data not found</div>
@@ -90,12 +90,16 @@ function ProfileStatusLayout(props) {
                             </>
                         ) : (
                             <>
-                                {filterDataByCategory(selectedTitle).map((item, index) => (
-                                    <div key={index}   className={`categorywidgets ${completedDays[selectedTitle] && completedDays[selectedTitle][index + 1] ? 'completed' : ''}`} onClick={() => handleDayClick(index + 1)}>
-                                        <img className="imgFrames" src={`/assets/images/frame.jpg`} />
-                                        <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" style="styles" status={item.den} />
-                                    </div>
-                                ))}
+                                 {filterDataByCategory(selectedTitle).map((item, index) => {
+                                    const day = index + 1;
+                                    const isCompleted = completedDays[selectedTitle]?.[day];
+                                    return (
+                                        <div key={index} className={`categorywidgets ${isCompleted ? 'completed' : ''}`} onClick={() => handleDayClick(day)} style={{ pointerEvents: isCompleted ? 'none' : 'auto' }}>
+                                            <img className="imgFrames" src={`/assets/images/frame.jpg`} />
+                                            <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" style="styles" status={item.den} />
+                                        </div>
+                                    );
+                                })}
                             </>
 
                         )}

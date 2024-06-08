@@ -45,6 +45,12 @@
 .categorywidgets{
     height: 100px;
     padding: 20px;
+    cursor: pointer;
+}
+
+.categorywidgets.completed {
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .profileWidgetsStatus{
