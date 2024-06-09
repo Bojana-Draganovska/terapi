@@ -11,7 +11,16 @@ function ProfileStatusLayout(props) {
     const [selectedTitle, setSelectedTitle] = useState("");
     const [selectedDay, setSelectedDay] = useState(null);
     const [completedDays, setCompletedDays] = useState({});
+    const [popupContent, setPopupContent] = useState(null);
     const categories = ["Анксиозност", "Менаџирање со гнев", "Депресија"];
+
+
+    const handleOpenPopup = (id) => {
+        setPopupContent(id);
+    };
+    const handleClosePopup = () => {
+        setPopupContent(null); 
+    };
 
     const handleWidgetClick = (index) => {
         let title;
@@ -51,7 +60,7 @@ function ProfileStatusLayout(props) {
         const data = filterDataByCategory(category);
         return data.find(item => item.den === `Ден ${day}`);
     };
-    
+
     const handleCompleteAndBackClick = () => {
         if (selectedDay !== null) {
             setCompletedDays((prev) => ({
@@ -61,7 +70,7 @@ function ProfileStatusLayout(props) {
                     [selectedDay]: true,
                 },
             }));
-            setSelectedDay(null); 
+            setSelectedDay(null);
         }
     };
 
@@ -70,8 +79,8 @@ function ProfileStatusLayout(props) {
         return dayData ? (
             <div key={dayData.id} className="dayDetail">
                 <img className="imgFrame2_1" src="assets/images/frame.jpg" alt="imgFrame2" />
-                <ProfileStatusWidget key={dayData.id} className="selectedDayStatus" style="styles" style1="style1" status={dayData.naslov} description={dayData.descrition}/>
-                <Link onClick={handleCompleteAndBackClick}><Button classname="btnFinish" content={"завршено"}/></Link>
+                <ProfileStatusWidget key={dayData.id} className="selectedDayStatus" style="styles" style1="style1" status={dayData.naslov} description={dayData.descrition} />
+                <Button classname="btnFinish" content={"завршено"} onClick={handleCompleteAndBackClick} />
             </div>
         ) : (
             <div>Day data not found</div>
@@ -82,15 +91,15 @@ function ProfileStatusLayout(props) {
         <>
             {selectedTitle ? (
                 <>
-                    <Title className="title" img="/assets/icons/vector.svg" title={selectedDay ? `Ден ${selectedDay}` : selectedTitle}/>
+                    <Title className="title" img="/assets/icons/vector.svg" title={selectedDay ? `Ден ${selectedDay}` : selectedTitle} />
                     <div className="categoryWidget">
                         {selectedDay ? (
                             <>
-                              {renderDayData()}
+                                {renderDayData()}
                             </>
                         ) : (
                             <>
-                                 {filterDataByCategory(selectedTitle).map((item, index) => {
+                                {filterDataByCategory(selectedTitle).map((item, index) => {
                                     const day = index + 1;
                                     const isCompleted = completedDays[selectedTitle]?.[day];
                                     return (
@@ -123,6 +132,34 @@ function ProfileStatusLayout(props) {
                             <ProfileStatusWidget className="styleWidget3" status={props.status3} />
                         </div>
                     </div>
+                    <div className="buttonsProfile">
+                    <Button classname="buttonProfile" content={"Преглед на податоци"} onClick={() => handleOpenPopup(1)} />
+                    <Button classname="buttonProfile" content={"Ажурирај податоци"} onClick={() => handleOpenPopup(2)} />
+                    <Button classname="buttonProfile" content={"Правила и обврски"} onClick={() => handleOpenPopup(3)} />
+                    <Button classname="buttonProfile" content={"Одјава"} onClick={props.handleLogout} />
+                </div>
+                {popupContent===1 && (
+                    <div onClick={() => handleClosePopup()}>
+                        <ProfileStatusWidget style="pregledNaPodatoci1" status={"Електронски маил:"} description={"Лозинка:"}/>
+                    </div>
+                    
+                )}
+                {popupContent===2 && (
+                    <div onClick={() => handleClosePopup()}>
+                     <ProfileStatusWidget style="pregledNaPodatoci2" status={"Електронски маил:"} description={"Стара лозинка:"} description1={"Нова лозинка:"}/>
+                     <Button classname="buttonAzuriraj" content={"Ажурирај"}/>
+                    </div>
+                )}
+                {popupContent===3 && (
+                    <div onClick={() => handleClosePopup()}>
+                        <ProfileStatusWidget style="pregledNaPodatoci3" status={"Услови за користење на апликацијата за ментално здравје"} description={"Прифаќање на условите: Со користење на оваа апликација, се согласувате да ги почитувате и да бидете обврзани со овие услови за користење.\n" +
+                        "Политика за приватност: Вашата приватност е важна за нас. Ве молиме прегледајте ја нашата Политика за приватност, која исто така го регулира вашето користење на апликацијата.\n" +
+                        "Користење на апликацијата: Оваа апликација е наменета само за информативни цели и не претставува медицински совет или третман.\n" +
+                        "Одговорности на корисникот: Вие сте одговорни за одржување на доверливоста на вашата сметка и лозинка и за ограничување на пристапот до вашиот уред.\n" +
+                        "Ограничување на одговорност: Провајдерот на апликацијата не е одговорен за каква било директна, индиректна, случајна или последична штета што произлегува од користењето или неможноста за користење на апликацијата.\n" +
+                        "Промени на условите: Го задржуваме  правото да го прекинеме вашиот пристап до апликацијата по наша дискреција, без известување и без одговорност, по која било причина."}/>
+                    </div>
+                )}
                 </>
             )}
         </>

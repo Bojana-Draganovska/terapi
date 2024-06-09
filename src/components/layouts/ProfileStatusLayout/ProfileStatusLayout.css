@@ -16,6 +16,13 @@
     width: 50%;
     height: 70%;
 }
+.profileWidgetStatus{
+    position: absolute;
+    top: 29%;
+    right: 27%;
+    width: 60%;
+    height: 70%;
+}
 .styleWidget1{
     position: relative;
     top: 40px;
@@ -63,14 +70,14 @@
 .imgFrame1{
     width: 10%;
     position: absolute;
-    bottom: 84%;
+    bottom: 78%;
     right: 87%;
     z-index: 1;
 }
 .imgFrame2{
     width: 10%;
     position: absolute;
-    top: 26%;
+    top: 34%;
     left: 70%;
     transform: rotate(40deg);
     z-index: 1;
@@ -78,7 +85,7 @@
 .imgFrame3{
     width: 10%;
     position: absolute;
-    top: 50%;
+    top: 65%;
     right: 87%;
     z-index: 1;
 }
@@ -111,12 +118,12 @@
     font-weight: bolder;
 }
 .style1{
-    width: 45%;
+    width: 110%;
     font-size: 25px;
     font-weight: lighter;
     position: relative;
-    left: 10px;
-    bottom: 65%;
+    right: 5%;
+    top: 20%;
 }
 .selectedDayStatus{
     position: relative;
@@ -134,4 +141,77 @@
     color: #DD1E85;
     width: 40%;
     font-size: 20px;
+}
+.buttonsProfile{
+    height: 50%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    bottom: 45%;
+    left: 5.4%;
+}
+.buttonProfile:last-child{
+    position: relative;
+    top: 45%;
+}
+.buttonProfile{
+    width: 90%;
+    border-radius: 16px;
+    padding: 15px 40px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: #000;
+    border: 1px solid black;
+    background-color: #FFFEF5;
+    text-align: center;
+    font-family: IBM Plex Mono;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.pregledNaPodatoci1{
+    display: block;
+    background-color: #8ABDD8;
+    position: absolute;
+    top: 42%;
+    left: 14.3%;
+    text-align: start;
+    line-height: 30px;
+    height: 10%;
+    width: 21.2%;
+    font-size: 15px;
+}
+.pregledNaPodatoci2{
+    display: block;
+    background-color: #8ABDD8;
+    position: absolute;
+    top: 51%;
+    left: 14.3%;
+    text-align: start;
+    line-height: 35px;
+    height: 24%;
+    width: 21.2%;
+    font-size: 15px;
+}
+.pregledNaPodatoci3{
+    display: block;
+    background-color: #8ABDD8;
+    position: absolute;
+    top: 60.5%;
+    left: 14.3%;
+    text-align: start;
+    line-height: 35px;
+    height: 18%;
+    width: 22%;
+    font-size: 15px;
+    overflow-y: scroll;
+}
+.buttonAzuriraj{
+    position: absolute;
+    bottom: 15.5%;
+    left: 17%;
+    width: 20%;
+    font-size: 15px;
+    background-color: #8ABDD8;
 }
