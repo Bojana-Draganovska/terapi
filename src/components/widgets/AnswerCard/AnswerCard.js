@@ -1,11 +1,11 @@
 //Style
 import "../AnswerCard/AnswerCard.css";
 
-function AnswerCard(props) {
+function AnswerCard({answer, onClick}) {
     return (
-        <div className="answerCard" onClick={() => console.log("S")}>
+        <div className="answerCard" onClick={() => onClick(answer)}>
             <div className="answerCardText">
-                <p className="answer">{props.answer}</p>
+                <p className="answer">{answer}</p>
             </div>
         </div>
     )

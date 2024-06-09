@@ -78,7 +78,7 @@ function ProfileStatusLayout(props) {
             <div key={dayData.id} className="dayDetail">
                 <img className="imgFrame2_1" src="assets/images/frame.jpg" alt="imgFrame2" />
                 <ProfileStatusWidget key={dayData.id} className="selectedDayStatus" style="styles" style1="style1" status={dayData.naslov} description={dayData.descrition} />
-                <Button classname="btnFinish" content={"завршено"} onClick={handleCompleteAndBackClick} />
+                <Button classname="btnFinish" content={"Завршено"} onClick={handleCompleteAndBackClick} />
             </div>
         ) : (
             <div>Day data not found</div>
@@ -145,9 +145,9 @@ function ProfileStatusLayout(props) {
                     {activePopup === 2 && (
                         <div>
                              <ProfileStatusWidget style="pregledNaPodatoci2" status={"Електронски маил:"} description={"Стара лозинка:"} description1={"Нова лозинка:"}/>
-                                <Input className="input1" typename={'text'} placeholder={"Внесето го твојот електронски маил:"}></Input>
-                                <Input className="input2" typename={'password'} placeholder={"Внеси ја твојата лозинка"}></Input>
-                                <Input className="input3" typename={'password'} placeholder={"Внеси ја новата лозинка"}></Input>
+                                <Input className="input1" typename={'text'}></Input>
+                                <Input className="input2" typename={'password'}></Input>
+                                <Input className="input3" typename={'password'}></Input>
                             <Button classname="buttonAzuriraj" content={"Ажурирај"} />
                         </div>
                     )}
