@@ -24,4 +24,11 @@
     flex-direction: row;
     align-items: center;
 }
-
+.flower{
+    position: relative;
+    left: 80%;
+}
+.registriraj{
+    position: relative;
+    left: 10%;
+}

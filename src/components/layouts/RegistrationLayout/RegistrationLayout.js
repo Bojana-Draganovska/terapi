@@ -14,12 +14,12 @@ return (
         <Input typename={'text'}  labelname={"Презиме"} placeholder={"Внеси го твоето презиме"}></Input>
         <Input typename={'text'}  labelname={"Електорнска пошта"} placeholder={"Внеси ја твојата електронска пошта"}></Input>
         <Input typename={'text'}  labelname={"Лозинка"} placeholder={"Внеси ја твојата лозинка"}></Input>
-        <Input typename={'submit'} value={"Регистрирај се"} />
+        <Input className={'registriraj'} typename={'submit'} value={"Регистрирај се"} />
     </form>
     </div>
     <div className='registrationbtns'>
         <RegistrationButtons />
-    <img id="flower" src='assets/images/flower.png' />
+    <img className="flower" id="flower" src='assets/images/flower.png' />
     </div>
     </div>
 )   
