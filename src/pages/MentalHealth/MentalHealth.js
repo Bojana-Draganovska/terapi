@@ -16,12 +16,12 @@ function MentalHealth() {
   const [selectedItem, setSelectedItem] = useState("");
 
 
-  useEffect(() => {
-    fetch("/data.json")
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/data.json")
+  //     .then((response) => response.json())
+  //     .then((data) => setData(data))
+  //     .catch((error) => console.error("Error fetching data:", error));
+  // }, []);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
