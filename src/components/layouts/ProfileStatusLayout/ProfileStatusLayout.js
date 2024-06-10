@@ -1,19 +1,44 @@
-//Style
+// Style
 import { useEffect, useState } from "react";
 import Button from "../../ui/Button/Button";
 import Title from "../../ui/Title/Title";
 import ProfileStatusWidget from "../../widgets/ProfileStatusWidget/ProfileStatusWidget";
 import "../ProfileStatusLayout/ProfileStatusLayout.css";
 import statusData from "../../../status.json";
-import Input from "../../ui/Input/Input"
+import Input from "../../ui/Input/Input";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { auth, logout } from "../../../config/firebase";
+import { updatePassword } from "firebase/auth";
 
 function ProfileStatusLayout(props) {
     const [selectedTitle, setSelectedTitle] = useState("");
     const [selectedDay, setSelectedDay] = useState(null);
     const [completedDays, setCompletedDays] = useState({});
-    const [activePopup, setActivePopup] = useState(null); 
+    const [activePopup, setActivePopup] = useState(null);
+    const [currentPassword, setCurrentPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [user, setUser] = useState(null); 
+    const [loggedOut, setLoggedOut] = useState(false);
+    const navigate = useNavigate();
     const categories = ["Анксиозност", "Менаџирање со гнев", "Депресија"];
+
+    useEffect(() => {
+        const currentUser = auth.currentUser;
+        setUser(currentUser);
+    }, []);
+    
+  const handleLogout = async () => {
+    await logout(); 
+    setLoggedOut(true); 
+  };
+
+
+  useEffect(() => {
+    if (loggedOut) {
+      navigate('/'); 
+    }
+  }, [loggedOut, navigate]);
 
 
     const handleTogglePopup = (id) => {
@@ -42,7 +67,6 @@ function ProfileStatusLayout(props) {
     const handleDayClick = (day) => {
         setSelectedDay(day);
     };
-
 
     const filterDataByCategory = (category) => {
         const categoryIndex = categories.indexOf(category);
@@ -85,6 +109,16 @@ function ProfileStatusLayout(props) {
         );
     };
 
+    const handlePasswordUpdate = async () => {
+        try {
+            await updatePassword(auth.currentUser, newPassword);
+            alert("Password updated successfully!");
+            setNewPassword(''); 
+        } catch (error) {
+            console.error("Error updating password:", error);
+        }
+    };
+
     return (
         <>
             {selectedTitle ? (
@@ -102,7 +136,7 @@ function ProfileStatusLayout(props) {
                                     const isCompleted = completedDays[selectedTitle]?.[day];
                                     return (
                                         <div key={index} className={`categorywidgets ${isCompleted ? 'completed' : ''}`} onClick={() => handleDayClick(day)} style={{ pointerEvents: isCompleted ? 'none' : 'auto' }}>
-                                            <img className="imgFrames" src={`/assets/images/frame.jpg`} />
+                                            <img className="imgFrames" src={`/assets/images/frame.jpg`} alt={`Frame ${index}`} />
                                             <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" style="styles" status={item.den} />
                                         </div>
                                     );
@@ -110,7 +144,7 @@ function ProfileStatusLayout(props) {
                             </>
 
                         )}
-                        <img className="imgFramee" src={`/assets/images/frame.jpg`} />
+                        <img className="imgFramee" src={`/assets/images/frame.jpg`} alt="Frame" />
                     </div>
                 </>
             ) : (
@@ -134,21 +168,20 @@ function ProfileStatusLayout(props) {
                         <Button classname="buttonProfile" content={"Преглед на податоци"} onClick={() => handleTogglePopup(1)} />
                         <Button classname="buttonProfile" content={"Ажурирај податоци"} onClick={() => handleTogglePopup(2)} />
                         <Button classname="buttonProfile" content={"Правила и обврски"} onClick={() => handleTogglePopup(3)} />
-                        <Button classname="buttonProfile" content={"Одјава"} onClick={props.handleLogout} />
+                        <Button classname="buttonProfile" content={"Одјава"} onClick={handleLogout} />
                     </div>
                     {activePopup === 1 && (
                         <div>
-                            <ProfileStatusWidget style="pregledNaPodatoci1" status={"Електронски маил:"} description={"Лозинка:"} />
+                            <ProfileStatusWidget style="pregledNaPodatoci1" status={`Електронски маил: ${user ? user.email : ''}`} description={`Лозинка: *******`} />
                         </div>
-
                     )}
                     {activePopup === 2 && (
                         <div>
-                             <ProfileStatusWidget style="pregledNaPodatoci2" status={"Електронски маил:"} description={"Стара лозинка:"} description1={"Нова лозинка:"}/>
-                                <Input className="input1" typename={'text'}></Input>
-                                <Input className="input2" typename={'password'}></Input>
-                                <Input className="input3" typename={'password'}></Input>
-                            <Button classname="buttonAzuriraj" content={"Ажурирај"} />
+                             <ProfileStatusWidget style="pregledNaPodatoci2" status={"Електронски маил: "} description={"Стара лозинка:"} description1={"Нова лозинка:"}/>
+                                <Input className="input1" type={'text'}/>
+                                <Input className="input2" type={'password'} onChange={(e) => setCurrentPassword(e.target.value)} value={currentPassword}/>
+                                <Input className="input3" type={'password'} onChange={(e) => setNewPassword(e.target.value)} value={newPassword}/>
+                            <Button classname="buttonAzuriraj" content={"Ажурирај"} onClick={handlePasswordUpdate} />
                         </div>
                     )}
                     {activePopup === 3 && (
@@ -156,14 +189,15 @@ function ProfileStatusLayout(props) {
                             <ProfileStatusWidget style="pregledNaPodatoci3" status={"Услови за користење на апликацијата за ментално здравје"} description={"Прифаќање на условите: Со користење на оваа апликација, се согласувате да ги почитувате и да бидете обврзани со овие услови за користење.\n" +
                                 "Политика за приватност: Вашата приватност е важна за нас. Ве молиме прегледајте ја нашата Политика за приватност, која исто така го регулира вашето користење на апликацијата.\n" +
                                 "Користење на апликацијата: Оваа апликација е наменета само за информативни цели и не претставува медицински совет или третман.\n" +
-                                "Одговорности на корисникот: Вие сте одговорни за одржување на доверливоста на вашата сметка и лозинка и за ограничување на пристапот до вашиот уред.\n" +
-                                "Ограничување на одговорност: Провајдерот на апликацијата не е одговорен за каква било директна, индиректна, случајна или последична штета што произлегува од користењето или неможноста за користење на апликацијата.\n" +
-                                "Промени на условите: Го задржуваме  правото да го прекинеме вашиот пристап до апликацијата по наша дискреција, без известување и без одговорност, по која било причина."} />
+                                "Одговорности на корисникот: Вие се согласувате да ја користите апликацијата на ваш сопствен ризик. Вие сте одговорни за вашето користење на апликацијата и ја примате целокупната одговорност за последиците кои може да настанат од вашето користење на апликацијата.\n" +
+                                "Контактирајте со нас: За било какви прашања или сугестии, ве молиме контактирајте не на contact@mentalhealthapp.com."} description1={"За повеќе информации, молиме посетете го нашиот сајт на www.mentalhealthapp.com"} />
                         </div>
                     )}
                 </>
             )}
         </>
-    )
+    );
 }
+
 export default ProfileStatusLayout;
+
