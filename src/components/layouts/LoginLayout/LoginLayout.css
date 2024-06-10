@@ -35,5 +35,7 @@
 }
 .button{
     width: 50%;
+    position: relative;
+    left: 33%;
 }
 

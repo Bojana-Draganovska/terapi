@@ -8,6 +8,7 @@ import '../NavBar/NavBar.css';
 
 function NavBar() {
     const location = useLocation();
+    const isProfilePage = location.pathname === '/my-profile';
     return (
         <div className='navigationBar'>
             <Logo />
@@ -16,7 +17,11 @@ function NavBar() {
             <Link to="/breathing" className={location.pathname === '/breathing' ? 'active' : ''}>Техники за дишење</Link>
             <Link to="/about-us" className={location.pathname === '/about-us' ? 'active' : ''}>За нас</Link>
             <Link to="/faq" className={location.pathname === '/faq' ? 'active' : ''}>FAQ</Link>
-            <Link to={"/login"}><Button content={"Најава"} /></Link>
+            {isProfilePage ? (
+                <Button content={"Профил"}/>
+            ) : (
+                <Link to={"/login"}><Button content={"Најава"} /></Link>
+            )}
         </div>
     )
 }
