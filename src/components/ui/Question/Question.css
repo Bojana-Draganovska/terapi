@@ -25,7 +25,9 @@
 }
 
 .quastion{
-    padding-top: 21px;
+    padding-top: 15px;
+    font-size: 18px;
+    text-align: justify;
 }
 
 .breathSpan {
@@ -34,8 +36,8 @@
 }
 
 .aboutUs {
-    font-size: 13px !important; 
+    font-size: 18px !important; 
     font-weight: 500 !important;
     color: black !important;
-
+    text-align: justify;
 }

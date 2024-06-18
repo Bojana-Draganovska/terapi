@@ -1,4 +1,3 @@
-// Style
 import { useEffect, useState } from "react";
 import Button from "../../ui/Button/Button";
 import Title from "../../ui/Title/Title";
@@ -6,14 +5,14 @@ import ProfileStatusWidget from "../../widgets/ProfileStatusWidget/ProfileStatus
 import "../ProfileStatusLayout/ProfileStatusLayout.css";
 import statusData from "../../../status.json";
 import Input from "../../ui/Input/Input";
-import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { auth, logout } from "../../../config/firebase";
 import { updatePassword } from "firebase/auth";
 
 function ProfileStatusLayout(props) {
     const [selectedTitle, setSelectedTitle] = useState("");
-    const [selectedDay, setSelectedDay] = useState(null);
+    const [selectedDay, setSelectedDay] = useState("");
+    const [selectedPredizvik, setSelectedPredizsvik] = useState(null);
     const [completedDays, setCompletedDays] = useState({});
     const [activePopup, setActivePopup] = useState(null);
     const [currentPassword, setCurrentPassword] = useState('');
@@ -28,44 +27,30 @@ function ProfileStatusLayout(props) {
         setUser(currentUser);
     }, []);
     
-  const handleLogout = async () => {
-    await logout(); 
-    setLoggedOut(true); 
-  };
+    const handleLogout = async () => {
+        await logout(); 
+        setLoggedOut(true); 
+    };
 
-
-  useEffect(() => {
-    if (loggedOut) {
-      navigate('/'); 
-    }
-  }, [loggedOut, navigate]);
-
+    useEffect(() => {
+        if (loggedOut) {
+            navigate('/'); 
+        }
+    }, [loggedOut, navigate]);
 
     const handleTogglePopup = (id) => {
         setActivePopup((prevId) => (prevId === id ? null : id));
     };
 
     const handleWidgetClick = (index) => {
-        let title;
-        switch (index) {
-            case 0:
-                title = "Анксиозност";
-                break;
-            case 1:
-                title = "Менаџирање со гнев";
-                break;
-            case 2:
-                title = "Депресија";
-                break;
-            default:
-                title = "";
-        }
+        const title = categories[index];
         setSelectedTitle(title);
         setSelectedDay(null);
+        setSelectedPredizsvik(null);
     };
 
-    const handleDayClick = (day) => {
-        setSelectedDay(day);
+    const handleDayClick = (id) => {
+        setSelectedDay(id);
     };
 
     const filterDataByCategory = (category) => {
@@ -78,10 +63,17 @@ function ProfileStatusLayout(props) {
         return [];
     };
 
-    const getDayData = (category, day) => {
+    const getDayData = (category, id) => {
         const data = filterDataByCategory(category);
-        return data.find(item => item.den === `Ден ${day}`);
+        return data.find(item => item.id === id);
     };
+
+    useEffect(() => {
+        if (selectedTitle && selectedDay) {
+            const predizvikDetail = getDayData(selectedTitle, selectedDay);
+            setSelectedPredizsvik(predizvikDetail.predizvik); 
+        }
+    }, [selectedTitle, selectedDay]); 
 
     const handleCompleteAndBackClick = () => {
         if (selectedDay !== null) {
@@ -98,6 +90,7 @@ function ProfileStatusLayout(props) {
 
     const renderDayData = () => {
         const dayData = getDayData(selectedTitle, selectedDay);
+        console.log(selectedDay)
         return dayData ? (
             <div key={dayData.id} className="dayDetail">
                 <img className="imgFrame2_1" src="assets/images/frame.jpg" alt="imgFrame2" />
@@ -123,7 +116,7 @@ function ProfileStatusLayout(props) {
         <>
             {selectedTitle ? (
                 <>
-                    <Title className="title" img="/assets/icons/vector.svg" title={selectedDay ? `Ден ${selectedDay}` : selectedTitle} />
+                    <Title className="title" img="/assets/icons/vector.svg" title={selectedPredizvik ? selectedPredizvik : selectedTitle}/>
                     <div className="categoryWidget">
                         {selectedDay ? (
                             <>
@@ -135,9 +128,9 @@ function ProfileStatusLayout(props) {
                                     const day = index + 1;
                                     const isCompleted = completedDays[selectedTitle]?.[day];
                                     return (
-                                        <div key={index} className={`categorywidgets ${isCompleted ? 'completed' : ''}`} onClick={() => handleDayClick(day)} style={{ pointerEvents: isCompleted ? 'none' : 'auto' }}>
+                                        <div key={index} className={`categorywidgets ${isCompleted ? 'completed' : ''}`} onClick={() => handleDayClick(item.id)} style={{ pointerEvents: isCompleted ? 'none' : 'auto' }}>
                                             <img className="imgFrames" src={`/assets/images/frame.jpg`} alt={`Frame ${index}`} />
-                                            <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" style="styles" status={item.den} />
+                                            <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" style="styles" status={item.predizvik} />
                                         </div>
                                     );
                                 })}
@@ -172,7 +165,7 @@ function ProfileStatusLayout(props) {
                     </div>
                     {activePopup === 1 && (
                         <div>
-                            <ProfileStatusWidget style="pregledNaPodatoci1" status={`Електронски маил: ${user ? user.email : ''}`} description={`Лозинка: *******`} />
+                            <ProfileStatusWidget style="pregledNaPodatoci1" status={`Електронски маил: ${user ? user.email : ''}`} description={`Корисник: ${user ? user.displayName : ''}`} />
                         </div>
                     )}
                     {activePopup === 2 && (
@@ -200,4 +193,3 @@ function ProfileStatusLayout(props) {
 }
 
 export default ProfileStatusLayout;
-

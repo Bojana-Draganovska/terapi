@@ -12,13 +12,6 @@
 .profileWidgetStatus{
     position: absolute;
     top: 29%;
-    right: 37%;
-    width: 50%;
-    height: 70%;
-}
-.profileWidgetStatus{
-    position: absolute;
-    top: 29%;
     right: 27%;
     width: 60%;
     height: 70%;
@@ -42,7 +35,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 90%;
+    width: 100%;
     height: 60%;
     position: relative;
     bottom: 10%;
@@ -61,7 +54,7 @@
 }
 
 .profileWidgetsStatus{
-    width: 120%;
+    width: 140%;
     padding: 20px;
     position: relative;
     bottom: 90px;
@@ -93,7 +86,7 @@
     width: 20%;
     position: absolute;
     bottom: 60%;
-    left: 83%;
+    left: 75%;
     transform: rotate(40deg);
     z-index: 1;
 }
@@ -102,7 +95,7 @@
     height: 100%;
     transform: rotate(40deg);
     position: relative;
-    top: 25px;
+    top: 15px;
     left: 110.5px;
     z-index: 1;
 }
@@ -113,8 +106,8 @@
     height: 50%;
 }
 .styles{
-    font-size: 30px;
-    padding: 50px;
+    font-size: 23px;
+    padding: 40px;
     font-weight: bolder;
 }
 .style1{
@@ -125,17 +118,23 @@
     right: 5%;
     top: 20%;
 }
+.dayDetail{
+    height: 110%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 .selectedDayStatus{
     position: relative;
-    top: 3%;
-    left: 25%;
-    width: 150%;
-    height: 100%;
+    top: 8%;
+    left: 23%;
+    width: 140%;
+    height: 90%;
+    overflow-x: hidden;
 }
 .btnFinish{
     position: relative;
-    bottom: 20%;
-    left: 9.5%;
+    bottom: 15%;
+    left: 4.5%;
     border: none;
     background-color: #F2DFD1;
     color: #DD1E85;
