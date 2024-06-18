@@ -269,30 +269,12 @@
 }
 .playMode {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center; 
-    /* gap: 10px;  */
 }
-
 .playMode img {
     max-width: 100%;
     height: auto; 
-}
-.pinkCircle{
-    width: 2.5%;
-    position: relative;
-    left: 60px;
-    top: 75px;
-    z-index: 1;
-}
-.bluePlayLine{
-    width: 70%; 
-    position: relative; 
-    left: 10px;
-    top: 80px;
-}
-.playAndStop{
-    position: relative;
-    right: 36.5%;
-    top: 370%;
+    padding-top: 20px;
 }

@@ -6,8 +6,3 @@
     flex-wrap: nowrap;
     width: 100%;
   }
-
-  .mental-health-options {
-    display: flex;
-    justify-content: space-around;
-}
