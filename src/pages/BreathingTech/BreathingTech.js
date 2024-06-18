@@ -32,11 +32,15 @@ function BreathingTech() {
         style={{color: '#0989FF'}}
         classname={"breathSpan"}
       />
-      <div className="breathing-options">
-      {data.slice(3,6).map((item) => 
-        <MoodCard feel={item.title} img={item.icon}/>
-      ) }
-      </div>
+     <MoodCardsLayout
+        anxietyfeel={"Deep Belly Breathing (Diaphragmatic Breathing)"}
+        anxietyimg={"assets/icons/deepbelly.svg"}
+        angerfeel={"4-7-8 Breathing"}
+        angerimg={"assets/icons/478breathing.svg"}
+        depressionfeel={"Box Breathing (Square Breathing)"}
+        depressionimg={"assets/icons/boxbreathing.svg"}
+      />
+
     </>
   );
 }

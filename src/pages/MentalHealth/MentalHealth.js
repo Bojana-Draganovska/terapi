@@ -15,7 +15,6 @@ function MentalHealth() {
   const [data, setData] = useState([]);
   const [selectedItem, setSelectedItem] = useState("");
 
-
   const handleItemClick = (item) => {
     setSelectedItem(item);
   };
@@ -26,24 +25,13 @@ function MentalHealth() {
       <NavBar />
       <Question submain={"се борам со"} main={""} />
       <div className="mental-health-options">
-        {data.slice(0, 3).map((item) => (
-            <Link 
-            to={{
-              pathname: `/health-selected/${item.linktitle}`,
-              state: {
-                title: "item.title",
-                img: item.img,
-                description: item.description
-              }
-            }}
-          >
-            <MoodCard
-            feel={item.title}
-            img={item.icon}
-            handleClick={handleItemClick}
-          />
-          </Link>
-        ))}
+      <MoodCardsLayout
+        anxietyfeel={"Aнксиозност"}
+        anxietyimg={"assets/icons/anxiety.svg"}
+        angerfeel={"Менаџирање со гневот"}
+        angerimg={"assets/icons/anger.svg"}
+        depressionfeel={"Депресија"}
+        depressionimg={"assets/icons/depression.svg"} />
       </div>
     </>
   );

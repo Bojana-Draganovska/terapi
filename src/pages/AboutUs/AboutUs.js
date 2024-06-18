@@ -14,7 +14,7 @@ function AboutUs() {
         classname={"aboutUs"}
       />
       <span style={{fontSize: 16}}>Со љубов,</span><br/>
-      <span style={{color: "#0989FF", fontSize: 16 }}>од тимот.</span>
+      <span style={{color: "#0989FF", fontSize: 16, paddingBottom: 20 }}>од тимот.</span>
     </>
   );
 }

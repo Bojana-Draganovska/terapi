@@ -29,6 +29,8 @@ function ProfileStatusLayout(props) {
     setUser(currentUser);
   }, []);
 
+  console.log(user)
+
   const handleLogout = async () => {
     await logout();
     setLoggedOut(true);
