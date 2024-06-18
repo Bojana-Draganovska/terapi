@@ -30,13 +30,24 @@ function ProfileStatusLayout(props) {
     const categories = ["Анксиозност", "Менаџирање со гнев", "Депресија"];
 
     useEffect(() => {
-        const currentUser = auth.currentUser;
-        setUser(currentUser);
-    }, []);
+        const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+            setUser(currentUser);
+            if (!currentUser) {
+                navigate("/my-profile"); 
+            }
+        });
+
+        return unsubscribe; 
+    }, [navigate]);
 
     const handleLogout = async () => {
-        await logout();
-        setLoggedOut(true);
+        try {
+            await logout(); 
+            setUser(null); 
+            navigate("/"); 
+        } catch (error) {
+            console.error("Error logging out:", error);
+        }
     };
 
     useEffect(() => {
