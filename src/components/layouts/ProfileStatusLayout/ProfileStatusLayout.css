@@ -6,12 +6,12 @@
     width: 53%;
     position: absolute;
     left: 46%;
-    top: 25%;
+    top: 23%;
     overflow-x: hidden;
 }
 .profileWidgetStatus{
     position: absolute;
-    top: 29%;
+    top: 27%;
     right: 27%;
     width: 60%;
     height: 70%;
@@ -30,6 +30,13 @@
     position: relative;
     top: 50px;
     width: 180%;
+}
+.styleWidget4{
+    line-height: 5px;
+    width: 90%;
+    position: relative;
+    left: 17%;
+    top: 38%;
 }
 .categoryWidget{
     display: flex;
@@ -80,6 +87,13 @@
     position: absolute;
     top: 50%;
     right: 87%;
+    z-index: 1;
+}
+.imgFrame4{
+    width: 7%;
+    position: absolute;
+    top: 74%;
+    right: 74%;
     z-index: 1;
 }
 .imgFrame2_1{
@@ -148,7 +162,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     position: relative;
-    top: 15%;
+    top: 13%;
     left: 5.4%;
 }
 .buttonProfile:last-child{
@@ -173,7 +187,7 @@
     display: block;
     background-color: #8ABDD8;
     position: absolute;
-    top: 42%;
+    top: 41%;
     left: 14.3%;
     text-align: start;
     line-height: 30px;
@@ -185,7 +199,7 @@
     display: block;
     background-color: #8ABDD8;
     position: absolute;
-    top: 54%;
+    top: 53%;
     left: 14.3%;
     text-align: start;
     line-height: 35px;
@@ -197,7 +211,7 @@
     display: block;
     background-color: #8ABDD8;
     position: absolute;
-    top: 65%;
+    top: 64%;
     left: 14.3%;
     text-align: start;
     line-height: 35px;
@@ -208,7 +222,7 @@
 }
 .buttonAzuriraj{
     position: absolute;
-    bottom: 12%;
+    bottom: 13%;
     left: 17%;
     width: 20%;
     font-size: 15px;
@@ -252,4 +266,33 @@
     padding: 0%;
     border-radius: 0%;
     filter: none;
+}
+.playMode {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px; 
+}
+
+.playMode img {
+    max-width: 100%;
+    height: auto; 
+}
+.pinkCircle{
+    width: 2.5%;
+    position: relative;
+    left: 60px;
+    top: 75px;
+    z-index: 1;
+}
+.bluePlayLine{
+    width: 70%; 
+    position: relative; 
+    left: 10px;
+    top: 80px;
+}
+.playAndStop{
+    position: relative;
+    right: 36.5%;
+    top: 370%;
 }
