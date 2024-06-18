@@ -5,7 +5,7 @@ import MoodCard from "../../widgets/MoodCard/MoodCard";
 import "../MoodCardsLayout/MoodCardsLayout.css";
 import { useEffect, useState } from "react";
 import data from "../../../dataSrc.json";
-import dataQ from "../../../quastionsData.json";
+import dataQ from "../../../resultData.json";
 
 function MoodCardsLayout(props) {
   const location = useLocation();

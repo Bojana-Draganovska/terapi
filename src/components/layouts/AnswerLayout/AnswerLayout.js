@@ -2,12 +2,12 @@
 import AnswerCard from "../../widgets/AnswerCard/AnswerCard";
 import "../AnswerLayout/AnswerLayout.css";
 
-function AnswerLayout(props){
+function AnswerLayout({answers, onAnswerClick}){
     return(
         <div className="answerMoodCards">
-            <AnswerCard answer={props.answerOne}/>
-            <AnswerCard answer={props.answerTwo}/>
-            <AnswerCard answer={props.answerThree}/>
+            {answers.map((answer, index) => (
+                <AnswerCard key={index} answer={answer.text} onClick={() => onAnswerClick(answer.value)}/>
+            ))}
         </div>
     )
 }

@@ -1,9 +1,9 @@
-.bigLine{
+.bigLine1{
     border: 3px solid #DD1E85;
     width: 35%;
     position: relative;
     left: 32%;
-    margin-top: 3%;
+    margin-top: 2%;
   }
   .footer{
     display: flex;
@@ -21,6 +21,8 @@
   font-size: 30px;
 }
 .btnLogin{
+  position: relative;
+  top: 6px;
   width: 100%;
   font-size: 20px;
 }
@@ -29,4 +31,5 @@
   position: relative;
   bottom: 80px;
   left: 50px;
+  font-size: 20px;
 }

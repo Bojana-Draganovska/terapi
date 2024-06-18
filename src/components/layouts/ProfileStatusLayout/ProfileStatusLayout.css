@@ -1,79 +1,298 @@
 .profileStatusLayout{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content:baseline;
     height: 80%;
-    width: 100%;
-    position: relative;
+    width: 53%;
+    position: absolute;
     left: 46%;
-    top: 1%;
+    top: 23%;
+    overflow-x: hidden;
 }
 .profileWidgetStatus{
     position: absolute;
-    top: 15%;
-    left: -35%;
-    width: 40%;
-    height: 120%;
-    font-size: 20px;
+    top: 27%;
+    right: 27%;
+    width: 60%;
+    height: 70%;
+}
+.styleWidget1{
+    position: relative;
+    top: 40px;
+    width: 180%;
+}
+.styleWidget2{
+    position: relative;
+    top: 45px;
+    width: 180%;
+}
+.styleWidget3{
+    position: relative;
+    top: 50px;
+    width: 180%;
+}
+.styleWidget4{
+    line-height: 5px;
+    width: 90%;
+    position: relative;
+    left: 17%;
+    top: 38%;
 }
 .categoryWidget{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 90%;
+    width: 100%;
     height: 60%;
     position: relative;
-    bottom: 5%;
+    bottom: 10%;
     right: 5%;
 }
 
 .categorywidgets{
     height: 100px;
-    padding: 30px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.categorywidgets.completed {
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .profileWidgetsStatus{
-    width: 120%;
+    width: 140%;
     padding: 20px;
     position: relative;
     bottom: 90px;
     font-weight: bolder;
 }
 .imgFrame1{
-    width: 6%;
-    position: relative;
-    top: 26%;
-    right: 45%;
+    width: 10%;
+    position: absolute;
+    bottom: 82%;
+    right: 87%;
+    z-index: 1;
 }
 .imgFrame2{
-    width: 6%;
-    position: relative;
-    top: 26%;
-    right: 9%;
+    width: 10%;
+    position: absolute;
+    top: 27%;
+    left: 70%;
     transform: rotate(40deg);
+    z-index: 1;
 }
 .imgFrame3{
-    width: 6%;
-    position: relative;
-    top: 26%;
-    right: 45%;
+    width: 10%;
+    position: absolute;
+    top: 50%;
+    right: 87%;
+    z-index: 1;
+}
+.imgFrame4{
+    width: 7%;
+    position: absolute;
+    top: 74%;
+    right: 74%;
+    z-index: 1;
+}
+.imgFrame2_1{
+    width: 20%;
+    position: absolute;
+    bottom: 60%;
+    left: 75%;
+    transform: rotate(40deg);
+    z-index: 1;
 }
 .imgFrames{
-    width: 50%;
-    height: 110%;
+    width: 40%;
+    height: 100%;
     transform: rotate(40deg);
     position: relative;
-    top: 10px;
-    left: 120px;
+    top: 15px;
+    left: 110.5px;
     z-index: 1;
 }
 .imgFramee{
     position: fixed;
-    left: 70%;
+    left: 75%;
     top: 57%;
     height: 50%;
 }
 .styles{
-    font-size: 30px;
-    padding: 50px;
+    font-size: 23px;
+    padding: 40px;
+    font-weight: bolder;
+}
+.style1{
+    width: 110%;
+    font-size: 25px;
+    font-weight: lighter;
+    position: relative;
+    right: 5%;
+    top: 20%;
+}
+.dayDetail{
+    height: 110%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.selectedDayStatus{
+    position: relative;
+    top: 8%;
+    left: 23%;
+    width: 140%;
+    height: 90%;
+    overflow-x: hidden;
+}
+.btnFinish{
+    position: relative;
+    bottom: 15%;
+    left: 4.5%;
+    border: none;
+    background-color: #F2DFD1;
+    color: #DD1E85;
+    width: 40%;
+    font-size: 20px;
+}
+.buttonsProfile{
+    height: 50%;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    top: 13%;
+    left: 5.4%;
+}
+.buttonProfile:last-child{
+    position: relative;
+    top: 15%;
+}
+.buttonProfile{
+    width: 90%;
+    border-radius: 16px;
+    padding: 15px 40px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: #000;
+    border: 1px solid black;
+    background-color: #FFFEF5;
+    text-align: center;
+    font-family: IBM Plex Mono;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.pregledNaPodatoci1{
+    display: block;
+    background-color: #8ABDD8;
+    position: absolute;
+    top: 41%;
+    left: 14.3%;
+    text-align: start;
+    line-height: 30px;
+    height: 10%;
+    width: 21.2%;
+    font-size: 15px;
+}
+.pregledNaPodatoci2{
+    display: block;
+    background-color: #8ABDD8;
+    position: absolute;
+    top: 53%;
+    left: 14.3%;
+    text-align: start;
+    line-height: 35px;
+    height: 24%;
+    width: 21.2%;
+    font-size: 15px;
+}
+.pregledNaPodatoci3{
+    display: block;
+    background-color: #8ABDD8;
+    position: absolute;
+    top: 64%;
+    left: 14.3%;
+    text-align: start;
+    line-height: 35px;
+    height: 18%;
+    width: 22%;
+    font-size: 15px;
+    overflow-y: scroll;
+}
+.buttonAzuriraj{
+    position: absolute;
+    bottom: 13%;
+    left: 17%;
+    width: 20%;
+    font-size: 15px;
+    background-color: #8ABDD8;
+}
+.input1{
+    background-color: #8ABDD8;
+    position: absolute;
+    bottom: 35.5%;
+    left: 26%;
+    width: 12%;
+    height: 4%;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0%;
+    border-radius: 0%;
+    filter: none;
+}
+.input2{
+    background-color: #8ABDD8;
+    position: absolute;
+    bottom: 30.5%;
+    left: 24.5%;
+    width: 12%;
+    height: 4%;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0%;
+    border-radius: 0%;
+    filter: none;
+}
+.input3{
+    background-color: #8ABDD8;
+    position: absolute;
+    bottom: 25%;
+    left: 24%;
+    width: 12%;
+    height: 4%;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0%;
+    border-radius: 0%;
+    filter: none;
+}
+.playMode {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px; 
+}
+
+.playMode img {
+    max-width: 100%;
+    height: auto; 
+}
+.pinkCircle{
+    width: 2.5%;
+    position: relative;
+    left: 60px;
+    top: 75px;
+    z-index: 1;
+}
+.bluePlayLine{
+    width: 70%; 
+    position: relative; 
+    left: 10px;
+    top: 80px;
+}
+.playAndStop{
+    position: relative;
+    right: 36.5%;
+    top: 370%;
 }

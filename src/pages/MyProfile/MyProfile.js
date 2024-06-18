@@ -18,7 +18,7 @@ function MyProfile() {
                 {currentShowStatus ? (
                     <>
                         <ProfileStatusLayout
-                            status1={"Твојот прогерс во борбата со Анксиозноста"}
+                            status1={"Твојот прогрес во борбата со Анксиозноста"}
                             status2={"Твојот прогрес во борбата со Менаџирање со гневот"}
                             status3={"Твојот прогрес во борбата со Депресија"}
                             onClickStatusShow={handleCurrentStatus} />

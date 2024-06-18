@@ -3,8 +3,8 @@ import Question from "../../ui/Question/Question";
 // Styles
 import "../QuestionLayout/QuestionLayout.css";
 //Data
-import dataQ from "../../../quastionsData.json";
 import defaultD from "../../../defaultData.json";
+import resultData from "../../../resultData.json";
 import { useState } from "react";
 import AnswerLayout from "../AnswerLayout/AnswerLayout";
 import Button from "../../ui/Button/Button";
@@ -13,19 +13,37 @@ import { Link } from "react-router-dom";
 function QuestionLayout() {
   const [currentQuastion, setCurrentQuastion] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const [answers, setAnswers] = useState([]);
   const currentQuestioN = defaultD[currentQuastion];
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = (answer) => {
+    setAnswers([...answers, answer]);
     if (currentQuastion < defaultD.length - 1) {
       setCurrentQuastion(currentQuastion + 1);
     } else {
       setIsComplete(true);
     }
   };
-  const handleMoodCardClick = () => {
-    handleNextQuestion();
+
+  const calculateResult = () => {
+    const counts = { easy: 0, medium: 0, hard: 0 };
+    answers.forEach(answer => {
+      if (answer === "easy") counts.easy++;
+      else if (answer === "medium") counts.medium++;
+      else if (answer === "hard") counts.hard++;
+    });
+
+    
+    if (counts.hard > counts.medium && counts.hard > counts.easy) {
+      return resultData[2];
+    } else if (counts.medium > counts.easy) {
+      return resultData[1]; 
+    } else {
+      return resultData[0]; 
+    }
   };
 
+  const result = isComplete ? calculateResult() : null;
 
   return (
     <div className="container">
@@ -33,12 +51,12 @@ function QuestionLayout() {
         {isComplete ? (
           <>
              <Question />
-             <p className="textP">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+             <p className="textP">{result.finalDescription}</p>
              <div className="footer">
                 <span className="text">за да ги искористите сите бенефити од апликацијата ве молиме</span>
                 <Link to={"/login"}><Button classname="btnLogin" content={"најавете се"}/></Link>
             </div>
-             <div className="bigLine"></div>
+             <div className="bigLine1"></div>
           </>
         ) : (
           <>
@@ -46,9 +64,7 @@ function QuestionLayout() {
             <Question submain={currentQuestioN.quation} />
           </div>
           <div className="bigLine"></div>
-          <div onClick={() => handleMoodCardClick()}>
-            <AnswerLayout answerOne={currentQuestioN.answer1} answerTwo={currentQuestioN.answer2} answerThree={currentQuestioN.answer3} />
-          </div>
+          <AnswerLayout answers={[{ text: currentQuestioN.answer1, value: "easy" },{ text: currentQuestioN.answer2, value: "medium" },{ text: currentQuestioN.answer3, value: "hard" }]} onAnswerClick={handleNextQuestion} />
           </>
         )}
       </div>
