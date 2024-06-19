@@ -269,20 +269,38 @@
 }
 .playMode {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center; 
-    /* gap: 10px;  */
 }
-
 .playMode img {
     max-width: 100%;
     height: auto; 
+    padding-top: 20px;
 }
-.pinkCircle{
-    width: 2.5%;
+.predContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
     position: relative;
-    left: 60px;
-    top: 75px;
+    left: 35%;
+}
+.predWidgetsStatus{
+    width: 150%;
+}
+.stylel{
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 40px;
+    height: 25%;
+}
+.imgFramePred{
+    width: 15%;
+    position: absolute;
+    bottom: 72%;
+    left: 62%;
+    transform: rotate(40deg);
     z-index: 1;
 }
 .bluePlayLine{
@@ -295,6 +313,15 @@
     position: relative;
     right: 36.5%;
     top: 370%;
+}
+
+.imgFramePred1{
+    width: 15%;
+    position: absolute;
+    bottom: 32%;
+    left: 62%;
+    transform: rotate(40deg);
+    z-index: 1;
 }
 
 @media only screen and (max-width: 600px) {

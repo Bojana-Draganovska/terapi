@@ -6,12 +6,12 @@ import MentalConditionLayout from "../../components/layouts/MentalConditionLayou
 import "../MentalCondition/MentalCondition.css"
 // 
 import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
 
 function MentalCondition(props){
     const location = useLocation();
     const { title, img, description } = location.state || {};
-  
-console.log(props.title)
 
     return(
         <>
