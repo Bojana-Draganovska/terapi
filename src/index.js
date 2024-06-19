@@ -17,6 +17,7 @@ import MentalCondition from "./pages/MentalCondition/MentalCondition";
 import BreathingCondition from "./pages/BreathingCondition/BreathingCondition";
 import FAQ from "./pages/FAQ/FAQ";
 import MyProfile from "./pages/MyProfile/MyProfile";
+import VideoBreathingTech from "./pages/VideoBreathingTech/VideoBreathingTech";
 
 
 
@@ -32,6 +33,7 @@ root.render(
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/health-selected/:title" element={<MentalCondition/>} />
       <Route path="/breathing-tech/:title" element={<BreathingCondition/>} />
+      <Route path="/video-breath" element={<VideoBreathingTech/>}/>
       <Route path="/faq" element={<FAQ/>}/>
       <Route path="/registration" element={<Registration />} />
       <Route path="/login" element={<Login />} />

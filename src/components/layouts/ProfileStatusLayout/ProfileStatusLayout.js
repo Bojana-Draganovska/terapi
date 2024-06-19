@@ -9,6 +9,7 @@ import Input from "../../ui/Input/Input";
 import { useNavigate } from "react-router-dom";
 import { auth, logout } from "../../../config/firebase";
 import { updatePassword } from "firebase/auth";
+import PointsLayout from "../PointsLayout/PointsLayout";
 
 function ProfileStatusLayout(props) {
     const [selectedTitle, setSelectedTitle] = useState("");
@@ -205,16 +206,7 @@ function ProfileStatusLayout(props) {
                             </>
                         ) : (
                             <>
-                                {filterDataByCategory(selectedTitle).map((item, index) => {
-                                    const day = index + 1;
-                                    const isCompleted = completedDays[selectedTitle]?.[day];
-                                    return (
-                                        <div key={index} className={`categorywidgets ${isCompleted ? "completed" : ""}`} onClick={() => handleDayClick(item.id)} style={{ pointerEvents: isCompleted ? "none" : "auto" }}>
-                                            <img className="imgFrames" src={`/assets/images/frame.jpg`} alt={`Frame ${index}`}/>
-                                            <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" style="styles" status={item.predizvik}/>
-                                        </div>
-                                    );
-                                })}
+                               <PointsLayout/>
                             </>
                         )}
                         <img className="imgFramee" src={`/assets/images/frame.jpg`} alt="Frame"/>
