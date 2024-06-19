@@ -7,3 +7,12 @@
     left: 12%;
     bottom: 28%;
 }
+
+@media only screen and (max-width: 600px) {
+    .mainFAQ{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        position: static;
+    }
+  }

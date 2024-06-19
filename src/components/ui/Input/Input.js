@@ -5,7 +5,7 @@ function Input(props) {
 return (
     <label>
         {props.labelname}
-    <input className={`${props.className ? props.className : ''}`} type={props.typename} name={props.inputname} placeholder={props.placeholder} value={props.value} onChange={props.onChange}></input>
+    <input className={`${props.className ? props.className : ''}`} type={props.typename} id={props.id} name={props.inputname} placeholder={props.placeholder} value={props.value} onChange={props.onChange}></input>
     </label>
 )
 }

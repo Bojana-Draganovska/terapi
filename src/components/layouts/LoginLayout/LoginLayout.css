@@ -39,3 +39,60 @@
     left: 33%;
 }
 
+
+@media only screen and (max-width: 600px) {
+    .form-container { 
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* margin-top: 100px; */
+        margin: 10px;
+        height: auto;
+    }
+    
+    
+    #flower {
+        display: none;
+    
+    }
+    
+    .haveaccount {
+        width: 60%;
+        margin-top: 0;
+        padding-left: 0;
+        
+    }
+    
+    .haveaccount label { 
+        align-items: center;
+    }
+    
+    .haveaccount input {
+        width: 50%;
+    }
+    
+    .login-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .button{
+        align-items: center;
+        display: flex;
+        align-content: center;
+        /* width: 50%; */
+        /* position: relative; */
+        /* left: 33%; */
+    }
+
+    .login-registration {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #registration-btn {
+        width: 100%;
+        padding: 10%;
+    }
+    
+  }

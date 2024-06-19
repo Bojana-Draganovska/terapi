@@ -28,16 +28,16 @@ function LoginLayout(props) {
 return (
     <div className='login-layout'>
     <div className='form-container'>
-    <form onSubmit={handleLogin}>
+    <form className='login-registration' onSubmit={handleLogin}>
         <Input typename={'text'}  labelname={"Електорнска пошта"} placeholder={"Внеси ја твојата електронска пошта"} onChange={(e) => setEmail(e.target.value)}></Input>
         <Input typename={'password'}  labelname={"Лозинка"} placeholder={"Внеси ја твојата лозинка"}  onChange={(e) => setPassword(e.target.value)}></Input>
-        <Input className={"button"} typename={'submit'} value={"Најави се"} />
+        <Input className={"button"} id="login-btn" typename={'submit'} value={"Најави се"} />
         {error && <p className="error-message">{error}</p>}
     </form>
     </div>
     <div className='haveaccount'>
         <span style={{fontSize: 17}}>Немате профил?</span>
-        <Link to={"/registration"}><Input typename={'submit'} value={"Регистрирај се"} /></Link>
+        <Link to={"/registration"}><Input typename={'submit'} id="registration-btn" value={"Регистрирај се"} /></Link>
     <img id="flower" src='assets/images/flower.png' />
     </div>
     </div>

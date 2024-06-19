@@ -20,7 +20,13 @@
 }
 
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+  .mainMoodCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
   }
+  
 }

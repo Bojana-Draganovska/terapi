@@ -41,3 +41,50 @@
     color: black !important;
     text-align: justify;
 }
+
+@media only screen and (max-width: 600px) {
+    .questionBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+    }
+    
+    .questionBox img {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+    }
+    
+    .questionBox span{
+        font-style: italic;
+        font-size: 15px;
+        padding-bottom: 10px;
+    }
+    
+    .questionBox h3 {
+        font-weight: bold;
+        font-size: 36px;
+        padding-bottom: 10px;
+    }
+    
+    .quastion{
+        padding-top: 15px;
+        font-size: 18px;
+        text-align: justify;
+    }
+    
+    .breathSpan {
+        font-style: italic;
+        font-size: 18px !important; 
+    }
+    
+    .aboutUs {
+        font-size: 18px !important; 
+        font-weight: 500 !important;
+        color: black !important;
+        text-align: justify;
+    }
+    
+  }

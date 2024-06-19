@@ -32,7 +32,7 @@ function RegistrationLayout(props) {
 return (
     <div className='registration-layout'>
     <div className='form-container'>
-    <form onSubmit={handleRegister}>
+    <form className='registration-form' onSubmit={handleRegister}>
         <Input typename={'text'} labelname={"Име"} placeholder={"Внеси го твоето име"} onChange={(e) => setName(e.target.value)}></Input>
         <Input typename={'text'}  labelname={"Презиме"} placeholder={"Внеси го твоето презиме"} onChange={(e) => setSurname(e.target.value)}></Input>
         <Input typename={'email'}  labelname={"Електорнска пошта"} placeholder={"Внеси ја твојата електронска пошта"} onChange={(e) => setEmail(e.target.value)}></Input>

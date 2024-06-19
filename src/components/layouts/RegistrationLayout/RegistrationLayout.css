@@ -32,3 +32,21 @@
     position: relative;
     left: 10%;
 }
+
+@media only screen and (max-width: 600px) {
+    .registration-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .registriraj{
+        left: 0;
+    }
+
+    .registrationbtns {
+        width: 60%;
+        margin-top: 0;
+        padding-left: 0;
+    }
+}
