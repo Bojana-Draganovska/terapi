@@ -151,7 +151,7 @@ function ProfileStatusLayout(props) {
         audio.addEventListener('timeupdate', handleTimeUpdate);
 
         if (!audio.paused) {
-            audio.pause();
+            audio.pause(); 
         }
 
         return () => {
@@ -250,7 +250,6 @@ function ProfileStatusLayout(props) {
                         </>
                     ) : (
                         <>
-                            <ProfileStatusWidget className="profileWidgetStatus" />
                             <div className="profileStatusLayout">
                                 <div onClick={() => handleWidgetClick(0)}>
                                     <img className="imgFrame1" src="assets/images/frame.jpg" alt="imgFrame1"/>
@@ -269,6 +268,7 @@ function ProfileStatusLayout(props) {
                                     <ProfileStatusWidget className="styleWidget4" status={"Помош сега"}/>
                                 </div>
                             </div>
+                            <ProfileStatusWidget style="profileWidgetStatus" />
                             <div className="buttonsProfile">
                                 <Button classname="buttonProfile" content={"Преглед на податоци"} onClick={() => handleTogglePopup(1)}/>
                                 <Button classname="buttonProfile" content={"Ажурирај податоци"} onClick={() => handleTogglePopup(2)}/>
