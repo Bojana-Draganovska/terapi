@@ -31,7 +31,7 @@ return (
     <form onSubmit={handleLogin}>
         <Input typename={'text'}  labelname={"Електорнска пошта"} placeholder={"Внеси ја твојата електронска пошта"} onChange={(e) => setEmail(e.target.value)}></Input>
         <Input typename={'password'}  labelname={"Лозинка"} placeholder={"Внеси ја твојата лозинка"}  onChange={(e) => setPassword(e.target.value)}></Input>
-        <Input className={"button"} typename={'submit'} value={"Најави се"} />
+        <Input className={"buttonLogin"} typename={'submit'} value={"Најави се"} />
         {error && <p className="error-message">{error}</p>}
     </form>
     </div>

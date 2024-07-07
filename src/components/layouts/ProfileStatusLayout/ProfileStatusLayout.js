@@ -25,7 +25,7 @@ function ProfileStatusLayout(props) {
     const [isPlaying, setIsPlaying] = useState(false);
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0); 
-    const audioRef = useRef(null);
+    const audioRef = useRef(new Audio("/assets/audio/meditacijaWomen.mp3"));
     const intervalRef = useRef(null);
     const navigate = useNavigate();
     const categories = ["Анксиозност", "Менаџирање со гнев", "Депресија"];
@@ -136,23 +136,47 @@ function ProfileStatusLayout(props) {
     };
 
     useEffect(() => {
-        audioRef.current = new Audio("/assets/audio/meditacija.mp3");
-        audioRef.current.loop = false;
+        const audio = audioRef.current;
+        audio.loop = false;
 
-        audioRef.current.addEventListener('loadedmetadata', () => {
-            setDuration(audioRef.current.duration);
-        });
+        const handleLoadedMetadata = () => {
+            setDuration(audio.duration);
+        };
 
-        audioRef.current.addEventListener('timeupdate', () => {
-            setCurrentTime(audioRef.current.currentTime);
-        });
+        const handleTimeUpdate = () => {
+            setCurrentTime(audio.currentTime);
+        };
+
+        audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+        audio.addEventListener('timeupdate', handleTimeUpdate);
+
+        if (!audio.paused) {
+            audio.pause();
+        }
 
         return () => {
+            audio.pause();
+            audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+            audio.removeEventListener('timeupdate', handleTimeUpdate);
             clearInterval(intervalRef.current);
-            audioRef.current.removeEventListener('loadedmetadata', () => {});
-            audioRef.current.removeEventListener('timeupdate', () => {});
         };
     }, []);
+
+    const changeVoice = () => {
+        const audio = audioRef.current;
+        const currentSrc = audio.src;
+        let newSrc = "";
+
+        if(currentSrc.endsWith("meditacijaWomen.mp3")){
+            newSrc = "/assets/audio/meditacijaMen.mp3";
+        } else {
+            newSrc = "/assets/audio/meditacijaWomen.mp3";
+        }
+
+        audio.pause();
+        audio.src = newSrc;
+        audio.load();
+    }
 
     useEffect(() => {
         if (isPlaying) {
@@ -175,6 +199,7 @@ function ProfileStatusLayout(props) {
             }
         }
     }, [isPlaying]);
+
 
     const handleStartStop = () => {
         console.log("Button clicked!");
@@ -221,6 +246,7 @@ function ProfileStatusLayout(props) {
                                 <input style={{width: 600}} type="range" min="0" max={duration} value={currentTime} onChange={handleChange} step={0.1}/>
                                 <img onClick={handleStartStop} className="playAndStop" src="assets/icons/playandstop.svg"/>
                             </div>
+                            <Button classname={"changeVoice"} content={"Смени глас"} onClick={changeVoice}/>
                         </>
                     ) : (
                         <>

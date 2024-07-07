@@ -311,3 +311,11 @@
     transform: rotate(40deg);
     z-index: 1;
 }
+.changeVoice{
+    position: relative;
+    left: 80%;
+    top: 5%;
+    width: 20%;
+    font-size: clamp(5px, 2.5vw, 20px);
+    text-align: center;
+}
