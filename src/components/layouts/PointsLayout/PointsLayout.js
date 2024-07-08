@@ -35,7 +35,7 @@ function PointsLayout(){
                                             <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" style="styles" status={item.predizvik}/>
                                         </div>
                                     );
-                                })}
+            })}
         </>
     )
 }

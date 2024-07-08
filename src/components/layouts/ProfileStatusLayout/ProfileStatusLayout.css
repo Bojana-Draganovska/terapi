@@ -1,24 +1,44 @@
 .profileStatusLayout{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 60%;
+    width: 40%;
     position: absolute;
     left: 50%;
-    top: 22%;
+    top: 34%;
 }
 .profileWidgetStatus{
     position: relative;
     left: 5%;
-    top: 50%;
+    top: 10%;
     width: 30%;
-    height: 350%;
+    height: 400px;
+}
+.styleWidget1{
+    padding: 2%;
+    height: 60px;
+    font-size: clamp(1px, 2.5vw, 20px);
+}
+.styleWidget2{
+    padding: 2%;
+    height: 60px;
+    font-size: clamp(1px, 2.5vw, 20px);
+}
+.styleWidget3{
+    padding: 2%;
+    height: 60px;
+    font-size: clamp(1px, 2.5vw, 20px);
 }
 .styleWidget4{
     line-height: 5px;
-    width: 50%;
-    position: relative;
-    left: 25%;
-    top: 38%;
+    width: 20%;
+    position: absolute;
+    left: 60%;
+    top: 25%;
     font-weight: bolder;
+    padding: 0.5%;
+    font-size: clamp(1px, 2.5vw, 20px);
 }
 .categoryWidget{
     display: flex;
@@ -30,17 +50,6 @@
     bottom: 10%;
     right: 5%;
 }
-.categorywidgets{
-    height: 100px;
-    padding: 20px;
-    cursor: pointer;
-}
-
-.categorywidgets.completed {
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
 .profileWidgetsStatus{
     width: 140%;
     padding: 20px;
@@ -51,14 +60,14 @@
 .imgFrame1{
     width: 13%;
     position: absolute;
-    bottom: 65%;
+    bottom: 80%;
     right: 87%;
     z-index: 1;
 }
 .imgFrame2{
     width: 13%;
     position: absolute;
-    top: 43%;
+    top: 30%;
     left: 89%;
     transform: rotate(40deg);
     z-index: 1;
@@ -66,22 +75,22 @@
 .imgFrame3{
     width: 13%;
     position: absolute;
-    top: 70%;
+    top: 60%;
     right: 87%;
     z-index: 1;
 }
 .imgFrame4{
-    width: 10%;
+    width: 5%;
     position: absolute;
-    bottom: 90%;
-    right: 65%;
+    bottom: 70%;
+    right: 35%;
     z-index: 1;
 }
 .imgFrame2_1{
     width: 20%;
     position: absolute;
-    bottom: 60%;
-    left: 75%;
+    bottom: 75%;
+    left: 87%;
     transform: rotate(40deg);
     z-index: 1;
 }
@@ -96,40 +105,30 @@
 }
 .imgFramee{
     position: fixed;
-    left: 75%;
-    top: 57%;
+    left: 78%;
+    top: 60%;
     height: 50%;
 }
 .styles{
+    position: relative;
+    top: 5%;
     font-size: 23px;
     padding: 40px;
+    height: 300px;
+}
+.fontBold{
     font-weight: bolder;
 }
-.style1{
-    width: 110%;
-    font-size: 25px;
-    font-weight: lighter;
-    position: relative;
-    right: 5%;
-    top: 20%;
-}
 .dayDetail{
-    height: 110%;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-.selectedDayStatus{
     position: relative;
+    left: 20%;
     top: 8%;
-    left: 23%;
-    width: 140%;
-    height: 90%;
-    overflow-x: hidden;
+    height: 110%;
+    width: 70%;
 }
 .btnFinish{
     position: relative;
     bottom: 15%;
-    left: 4.5%;
     border: none;
     background-color: #F2DFD1;
     color: #DD1E85;
@@ -137,14 +136,14 @@
     font-size: 20px;
 }
 .buttonsProfile{
-    height: 50%;
-    width: 35%;
+    height: 60%;
+    width: 27%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    position: relative;
-    bottom: 3%;
-    left: 6.7%;
+    position: absolute;
+    bottom: 14%;
+    left: 16%;
 }
 .buttonProfile:last-child{
     position: relative;
@@ -160,7 +159,7 @@
     background-color: #FFFEF5;
     text-align: center;
     font-family: IBM Plex Mono;
-    font-size: 16px;
+    font-size: clamp(1px, 2.5vw, 16px);
     font-weight: 400;
     cursor: pointer;
 }
@@ -168,42 +167,46 @@
     display: block;
     background-color: #8ABDD8;
     position: absolute;
-    top: 40%;
-    left: 15.3%;
+    top: 41%;
+    left: 16%;
     text-align: start;
     line-height: 30px;
     height: 10%;
-    width: 21.2%;
+    width: 20.3%;
     font-size: 15px;
+    padding-top: 1%;
+    padding-bottom: 4%;
 }
 .pregledNaPodatoci2{
     display: block;
     background-color: #8ABDD8;
     position: absolute;
-    top: 52%;
-    left: 15.5%;
+    top: 54.5%;
+    left: 16%;
     text-align: start;
-    line-height: 40px;
-    height: 24%;
-    width: 21.2%;
+    line-height: 44px;
+    height: 30%;
+    width: 20.3%;
     font-size: 15px;
+    padding-top: 0.5%;
 }
 .pregledNaPodatoci3{
     display: block;
     background-color: #8ABDD8;
     position: absolute;
-    top: 63%;
-    left: 15%;
+    top: 68%;
+    left: 16%;
     text-align: start;
     line-height: 35px;
     height: 18%;
-    width: 22%;
+    width: 20%;
     font-size: 15px;
     overflow-y: scroll;
+    padding-top: 0%;
 }
 .buttonAzuriraj{
     position: absolute;
-    bottom: 15%;
+    bottom: 13%;
     left: 18%;
     width: 20%;
     font-size: 15px;
@@ -213,8 +216,8 @@
     background-color: #8ABDD8;
     position: absolute;
     bottom: 37%;
-    left: 27%;
-    width: 12%;
+    left: 28%;
+    width: 11%;
     height: 4%;
     border: none;
     border-bottom: 1px solid black;
@@ -226,8 +229,8 @@
     background-color: #8ABDD8;
     position: absolute;
     bottom: 31%;
-    left: 27%;
-    width: 12%;
+    left: 28%;
+    width: 11%;
     height: 4%;
     border: none;
     border-bottom: 1px solid black;
@@ -239,8 +242,8 @@
     background-color: #8ABDD8;
     position: absolute;
     bottom: 26%;
-    left: 27%;
-    width: 12%;
+    left: 28%;
+    width: 11%;
     height: 4%;
     border: none;
     border-bottom: 1px solid black;
@@ -270,25 +273,19 @@
 .predWidgetsStatus{
     width: 150%;
 }
-.stylel{
-    font-size: 25px;
-    font-weight: bolder;
-    padding: 40px;
-    height: 25%;
-}
 .imgFramePred{
-    width: 15%;
+    width: 20%;
     position: absolute;
-    bottom: 72%;
-    left: 62%;
+    bottom: 80%;
+    left: 75%;
     transform: rotate(40deg);
     z-index: 1;
 }
 .imgFramePred1{
-    width: 15%;
+    width: 20%;
     position: absolute;
-    bottom: 32%;
-    left: 62%;
+    bottom: 30%;
+    left: 75%;
     transform: rotate(40deg);
     z-index: 1;
 }
@@ -299,4 +296,26 @@
     width: 20%;
     font-size: clamp(5px, 2.5vw, 20px);
     text-align: center;
+}
+.predizviciIPoeni{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    left: 32%;
+    top: 5%;
+    width: 50%;
+    height: 100%;
+}
+.predizvici{
+    width: 87%;
+    padding: 50px;
+    font-size: clamp(1px, 2.5vw, 25px);
+    font-weight: bolder;
+}
+.pregledNaPoeni{
+    width: 87%;
+    padding: 50px;
+    font-size: clamp(1px, 2.5vw, 25px);
+    font-weight: bolder;
 }
