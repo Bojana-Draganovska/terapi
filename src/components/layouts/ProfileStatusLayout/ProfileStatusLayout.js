@@ -25,6 +25,7 @@ function ProfileStatusLayout(props) {
     const [isPlaying, setIsPlaying] = useState(false);
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedButton, setSelectedButton] = useState(null);
     const audioRef = useRef(new Audio("/assets/audio/meditacijaWomen.mp3"));
     const intervalRef = useRef(null);
@@ -110,14 +111,31 @@ function ProfileStatusLayout(props) {
 
     const renderDayData = () => {
         const dayData = filterDataByCategory(selectedTitle).slice(0, 7);
+        
+        const handleNextClick = () => {
+            setCurrentIndex((prevIndex) => (prevIndex < dayData.length - 1 ? prevIndex + 1 : prevIndex));
+        };
+    
+        const handleBackClick = () => {
+            setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
+        };
+
         return dayData.length > 0 ? (
-            dayData.map(day => (
-                <div key={day.id} className="dayDetail">
+                <div key={dayData[currentIndex].id} className="dayDetail">
                     <img className="imgFrame2_1" src="assets/images/frame.jpg" alt="imgFrame2" />
-                    <ProfileStatusWidget key={day.id} poeni={`Поени: ${day.poeni}`} className="styles" style="fontBold" points={day.poeni} status={day.naslov} description={day.descrition} />
+                    <ProfileStatusWidget key={dayData[currentIndex].id} poeni={`Поени: ${dayData[currentIndex].poeni}`} className="styles" style="fontBold" points={dayData[currentIndex].poeni} status={dayData[currentIndex].naslov} description={dayData[currentIndex].descrition} />
                     <Button classname="btnFinish" content={"Завршено"} onClick={handleCompleteAndBackClick} />
+                    {currentIndex  === 0 ? (
+                    <img className="linenext" src="/assets/icons/linenext.svg" alt="linenext" onClick={handleNextClick}/>
+                ) : currentIndex  === dayData.length - 1 ? (
+                        <img className="lineback" src="/assets/icons/lineback.svg" alt="lineback" onClick={handleBackClick}/>
+                ) : (
+                    <>
+                        <img className="linenext" src="/assets/icons/linenext.svg" alt="linenext" onClick={handleNextClick}/>
+                        <img className="lineback" src="/assets/icons/lineback.svg" alt="lineback" onClick={handleBackClick}/>
+                    </>
+                )}
                 </div>
-            ))
         ) : (
             <div>Day data not found</div>
         );

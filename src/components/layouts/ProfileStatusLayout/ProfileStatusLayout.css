@@ -105,14 +105,14 @@
 }
 .imgFramee{
     position: fixed;
-    left: 78%;
-    top: 60%;
-    height: 50%;
+    left: 80%;
+    top: 70%;
+    height: 40%;
 }
 .styles{
     position: relative;
     top: 5%;
-    font-size: 23px;
+    font-size: clamp(1px, 2.5vw, 23px);
     padding: 40px;
     height: 300px;
 }
@@ -133,7 +133,7 @@
     background-color: #F2DFD1;
     color: #DD1E85;
     width: 40%;
-    font-size: 20px;
+    font-size: clamp(1px, 2.5vw, 20px);
 }
 .buttonsProfile{
     height: 60%;
@@ -318,4 +318,14 @@
     padding: 50px;
     font-size: clamp(1px, 2.5vw, 25px);
     font-weight: bolder;
+}
+.linenext{
+    position: absolute;
+    left: 110%;
+    bottom: 55%;
+}
+.lineback{
+    position: absolute;
+    right: 110%;
+    bottom: 55%;
 }
