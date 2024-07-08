@@ -26,7 +26,9 @@ function ProfileStatusLayout(props) {
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [pointsCollected, setPointsCollected] = useState(0);
     const [selectedButton, setSelectedButton] = useState(null);
+    const [selectedButtonZaveseno, setSelectedButtonZavrseno] = useState(Array(statusData.length).fill(false));
     const audioRef = useRef(new Audio("/assets/audio/meditacijaWomen.mp3"));
     const intervalRef = useRef(null);
     const navigate = useNavigate();
@@ -65,9 +67,18 @@ function ProfileStatusLayout(props) {
 
     const handleWidgetClick = (index) => {
         const title = categories[index];
+        const categoryData = filterDataByCategory(title);
         setSelectedTitle(title);
         setSelectedDay(null);
         setSelectedPredizsvik(null);
+        setSelectedButton(null);
+        setSelectedButtonZavrseno(Array(statusData.length).fill(false));
+
+        if (categoryData.length > 0) {
+            setCurrentIndex(0);
+            setSelectedDay(categoryData[0].id);
+            setSelectedPredizsvik(categoryData[0].predizvik);
+        }
     };
 
     const handleDayClick = (id) => {
@@ -96,46 +107,63 @@ function ProfileStatusLayout(props) {
         }
     }, [selectedTitle, selectedDay]);
 
-    const handleCompleteAndBackClick = () => {
-        if (selectedDay !== null) {
-            setCompletedDays((prev) => ({
-                ...prev,
-                [selectedTitle]: {
-                    ...prev[selectedTitle],
-                    [selectedDay]: true,
-                },
-            }));
-            setSelectedDay(null);
-        }
+    const getCategoryPoints = (index) => {
+        const start = index * 7;
+        const end = start + 7;
+        const categoryData = statusData.slice(start, end);
+        const categoryPoints = categoryData.reduce((totalPoints, item) => {
+            return totalPoints + (completedDays[item.naslov]?.[item.id] ? item.poeni : 0);
+        }, 0);
+        return categoryPoints;
     };
 
     const renderDayData = () => {
         const dayData = filterDataByCategory(selectedTitle).slice(0, 7);
-        
+
         const handleNextClick = () => {
             setCurrentIndex((prevIndex) => (prevIndex < dayData.length - 1 ? prevIndex + 1 : prevIndex));
         };
-    
+
         const handleBackClick = () => {
             setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
         };
 
+        const handleCompleteClick = () => {
+            if (dayData[currentIndex]) {
+                const points = pointsCollected + dayData[currentIndex].poeni;
+                setPointsCollected(points);
+                const updatedButtons = [...selectedButtonZaveseno];
+                updatedButtons[currentIndex] = true;
+                setSelectedButtonZavrseno(updatedButtons);
+                console.log(points);
+            }
+        };
+
+        const handleNavigateBack = () => {
+            setSelectedTitle(null);
+            setSelectedButton(null);
+            navigate(currentLayout);
+        };
+
         return dayData.length > 0 ? (
-                <div key={dayData[currentIndex].id} className="dayDetail">
-                    <img className="imgFrame2_1" src="assets/images/frame.jpg" alt="imgFrame2" />
-                    <ProfileStatusWidget key={dayData[currentIndex].id} poeni={`Поени: ${dayData[currentIndex].poeni}`} className="styles" style="fontBold" points={dayData[currentIndex].poeni} status={dayData[currentIndex].naslov} description={dayData[currentIndex].descrition} />
-                    <Button classname="btnFinish" content={"Завршено"} onClick={handleCompleteAndBackClick} />
-                    {currentIndex  === 0 ? (
-                    <img className="linenext" src="/assets/icons/linenext.svg" alt="linenext" onClick={handleNextClick}/>
-                ) : currentIndex  === dayData.length - 1 ? (
-                        <img className="lineback" src="/assets/icons/lineback.svg" alt="lineback" onClick={handleBackClick}/>
+            <div key={dayData[currentIndex].id} className="dayDetail">
+                <img className="imgFrame2_1" src="assets/images/frame.jpg" alt="imgFrame2" />
+                <ProfileStatusWidget key={dayData[currentIndex].id} poeni={`Поени: ${dayData[currentIndex].poeni}`} className="styles" style="fontBold" points={dayData[currentIndex].poeni} status={dayData[currentIndex].naslov} description={dayData[currentIndex].descrition} />
+                <Button classname="btnFinish" content={"Завршено"} onClick={handleCompleteClick} disabled={selectedButtonZaveseno[currentIndex]} style={{ opacity: selectedButtonZaveseno[currentIndex] ? 0.5 : 1 }} />
+                {currentIndex === 0 ? (
+                    <img className="linenext" src="/assets/icons/linenext.svg" alt="linenext" onClick={handleNextClick} />
+                ) : currentIndex === dayData.length - 1 ? (
+                    <>
+                        <img className="lineback" src="/assets/icons/lineback.svg" alt="lineback" onClick={handleBackClick} />
+                        <Button classname="back" content={"Назад"} onClick={handleNavigateBack} />
+                    </>
                 ) : (
                     <>
-                        <img className="linenext" src="/assets/icons/linenext.svg" alt="linenext" onClick={handleNextClick}/>
-                        <img className="lineback" src="/assets/icons/lineback.svg" alt="lineback" onClick={handleBackClick}/>
+                        <img className="linenext" src="/assets/icons/linenext.svg" alt="linenext" onClick={handleNextClick} />
+                        <img className="lineback" src="/assets/icons/lineback.svg" alt="lineback" onClick={handleBackClick} />
                     </>
                 )}
-                </div>
+            </div>
         ) : (
             <div>Day data not found</div>
         );
@@ -292,15 +320,15 @@ function ProfileStatusLayout(props) {
                             </div>
                             <div className="profileStatusLayout">
                                 <div onClick={() => handleWidgetClick(0)}>
-                                    <img className="imgFrame1" src="assets/images/frame.jpg" alt="imgFrame1" />
+                                    <img className="imgFrame1" src="assets/images/frame.jpg" alt="imgFrame1" poeni={getCategoryPoints(0)} />
                                     <ProfileStatusWidget className="styleWidget1" status={props.status1} />
                                 </div>
                                 <div onClick={() => handleWidgetClick(1)}>
-                                    <img className="imgFrame2" src="assets/images/frame.jpg" alt="imgFrame2" />
+                                    <img className="imgFrame2" src="assets/images/frame.jpg" alt="imgFrame2" poeni={getCategoryPoints(1)} />
                                     <ProfileStatusWidget className="styleWidget2" status={props.status2} />
                                 </div>
                                 <div onClick={() => handleWidgetClick(2)}>
-                                    <img className="imgFrame3" src="assets/images/frame.jpg" alt="imgFrame3" />
+                                    <img className="imgFrame3" src="assets/images/frame.jpg" alt="imgFrame3" poeni={getCategoryPoints(2)} />
                                     <ProfileStatusWidget className="styleWidget3" status={props.status3} />
                                 </div>
                             </div>

@@ -6,7 +6,7 @@
     width: 40%;
     position: absolute;
     left: 50%;
-    top: 34%;
+    top: 37%;
 }
 .profileWidgetStatus{
     position: relative;
@@ -35,7 +35,7 @@
     width: 20%;
     position: absolute;
     left: 60%;
-    top: 25%;
+    top: 28%;
     font-weight: bolder;
     padding: 0.5%;
     font-size: clamp(1px, 2.5vw, 20px);
@@ -82,7 +82,7 @@
 .imgFrame4{
     width: 5%;
     position: absolute;
-    bottom: 70%;
+    bottom: 67%;
     right: 35%;
     z-index: 1;
 }
@@ -276,7 +276,7 @@
 .imgFramePred{
     width: 20%;
     position: absolute;
-    bottom: 80%;
+    bottom: 75%;
     left: 75%;
     transform: rotate(40deg);
     z-index: 1;
@@ -284,7 +284,7 @@
 .imgFramePred1{
     width: 20%;
     position: absolute;
-    bottom: 30%;
+    bottom: 25%;
     left: 75%;
     transform: rotate(40deg);
     z-index: 1;
@@ -323,9 +323,21 @@
     position: absolute;
     left: 110%;
     bottom: 55%;
+    cursor: pointer;
 }
 .lineback{
     position: absolute;
     right: 110%;
     bottom: 55%;
+    cursor: pointer;
+}
+.back{
+    position: absolute;
+    bottom: 100%;
+    left: 106%;
+    border: none;
+    background-color: #F2DFD1;
+    color: #DD1E85;
+    width: 25%;
+    font-size: clamp(1px, 2.5vw, 18px);
 }

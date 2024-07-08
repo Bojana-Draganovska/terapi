@@ -4,7 +4,7 @@ import "../ProfileStatusWidget/ProfileStatusWidget.css";
 function ProfileStatusWidget(props) {
     return (
         <>
-            <div className={`profileStatus ${props.className ? props.className : ''}`}>
+            <div className={`profileStatus ${props.className ? props.className : ''}`} poeni={props.poeni}>
             <span className={"points"}>{props.poeni}</span>
             <p className={`${props.style ? props.style : ''}`}>{props.status}</p>
             <span className={`description ${props.naslovPredizvik ? props.naslovPredizvik : ''}`}>{props.description}</span>
