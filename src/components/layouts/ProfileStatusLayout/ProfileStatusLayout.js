@@ -318,10 +318,13 @@ function ProfileStatusLayout(props) {
                         ) : selectedButton === "pregledNaPoeni" ? (
                             <>
                                 {filterDataByCategory(selectedTitle).map((item, index) => {
+                                    const isWidgetClickable = pointsCollected >= item.poeni;
                                     return (
-                                        <div key={index} className={`filterDataCategory`} onClick={() => window.location.href = item.url}>
+                                        <div key={index} className={`filterDataCategory ${isWidgetClickable ? 'clickable' : 'disabled'}`} onClick={() => {if (isWidgetClickable) {
+                                                window.location.href = item.url;
+                                            }}} style={{ opacity: isWidgetClickable ? 1 : 0.5 }}>
                                              <img className="imgFrames" src={`/assets/images/frame.jpg`} alt={`Frame ${index}`} />
-                                            <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" status={item.poeni} description1={item.popust} naslovPredizvik1="naslovPredizvik" />
+                                            <ProfileStatusWidget key={item.id}  className={`profileWidgetsStatus ${isWidgetClickable ? '' : 'disabled'}`} status={`Поени: ${item.poeni}`} description1={item.popust} naslovPredizvik1="naslovPredizvik" />
                                         </div>
                                     );
                                 })}
