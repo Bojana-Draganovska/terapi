@@ -5,11 +5,14 @@ import ProfileStatusWidget from "../../widgets/ProfileStatusWidget/ProfileStatus
 import Quastion from "../../ui/Question/Question";
 import "../ProfileStatusLayout/ProfileStatusLayout.css";
 import statusData from "../../../status.json";
+import popustData from "../../../popust.json";
 import Input from "../../ui/Input/Input";
 import { useNavigate } from "react-router-dom";
-import { auth, logout } from "../../../config/firebase";
+import { auth, logout, fetchUserPoints, saveUserPoints } from "../../../config/firebase";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 import { updatePassword } from "firebase/auth";
-import PointsLayout from "../PointsLayout/PointsLayout";
+
+const db = getFirestore();
 
 function ProfileStatusLayout(props) {
     const [selectedTitle, setSelectedTitle] = useState("");
@@ -45,6 +48,37 @@ function ProfileStatusLayout(props) {
         return unsubscribe;
     }, [navigate]);
 
+      useEffect(() => {
+        const fetchPoints = async () => {
+            if (user) {
+                const points = await fetchUserPoints(user.uid);
+                setPointsCollected(points);
+                localStorage.setItem('pointsCollected', points); 
+            }
+        };
+    
+        fetchPoints();
+    }, [user]);
+
+    useEffect(() => {
+        const initUserPoints = async () => {
+            if (user) {
+                const docRef = doc(db, "users", user.uid);
+                const docSnap = await getDoc(docRef);
+                if (!docSnap.exists()) {
+                    await setDoc(docRef, { pointsCollected: 0 });
+                    setPointsCollected(0);
+                }
+            }
+        };
+    
+        initUserPoints();
+    }, [user]);
+    
+    useEffect(() => {
+        localStorage.setItem('pointsCollected', pointsCollected);
+    }, [pointsCollected]);
+
     const handleLogout = async () => {
         try {
             await logout();
@@ -74,6 +108,8 @@ function ProfileStatusLayout(props) {
         setSelectedButton(null);
         setSelectedButtonZavrseno(Array(statusData.length).fill(false));
 
+        sessionStorage.setItem('selectedCategory', title);
+
         if (categoryData.length > 0) {
             setCurrentIndex(0);
             setSelectedDay(categoryData[0].id);
@@ -81,11 +117,10 @@ function ProfileStatusLayout(props) {
         }
     };
 
-    const handleDayClick = (id) => {
-        setSelectedDay(id);
-    };
-
     const filterDataByCategory = (category) => {
+        if (category === `Состојба: ${pointsCollected}`) {
+            return popustData;
+        }
         const categoryIndex = categories.indexOf(category);
         if (categoryIndex !== -1) {
             const start = categoryIndex * 7;
@@ -117,6 +152,14 @@ function ProfileStatusLayout(props) {
         return categoryPoints;
     };
 
+    useEffect(() => {
+        const savedPoints = localStorage.getItem('pointsCollected');
+        if (savedPoints) {
+            setPointsCollected(parseInt(savedPoints, 10));
+        }
+    }, []);
+    
+
     const renderDayData = () => {
         const dayData = filterDataByCategory(selectedTitle).slice(0, 7);
 
@@ -128,20 +171,24 @@ function ProfileStatusLayout(props) {
             setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
         };
 
-        const handleCompleteClick = () => {
+        const handleCompleteClick = async () => {
             if (dayData[currentIndex]) {
-                const points = pointsCollected + dayData[currentIndex].poeni;
-                setPointsCollected(points);
+                const newPoints = pointsCollected + dayData[currentIndex].poeni;
+                setPointsCollected(newPoints);
+                if (user) {
+                    await saveUserPoints(user.uid, newPoints);
+                }
+        
                 const updatedButtons = [...selectedButtonZaveseno];
                 updatedButtons[currentIndex] = true;
                 setSelectedButtonZavrseno(updatedButtons);
-                console.log(points);
             }
         };
 
         const handleNavigateBack = () => {
             setSelectedTitle(null);
             setSelectedButton(null);
+            sessionStorage.removeItem('selectedCategory');
             navigate(currentLayout);
         };
 
@@ -262,20 +309,33 @@ function ProfileStatusLayout(props) {
 
     const handlePredizviciClick = () => {
         setSelectedButton("predizvici");
+        setSelectedTitle(selectedTitle);
     };
 
     const handlePregledNaPoeniClick = () => {
         setSelectedButton("pregledNaPoeni");
+        setSelectedTitle(`Состојба: ${pointsCollected}`);
     };
 
     return (
         <>
             {selectedTitle ? (
                 <>
-                    <Title className="title" img="/assets/icons/vector.svg" title={selectedPredizvik ? selectedPredizvik : selectedTitle} />
+                    <Title className="title" img="/assets/icons/vector.svg" title={selectedTitle} />
                     <div className="categoryWidget">
                         {selectedButton === "predizvici" ? (
                             renderDayData()
+                        ) : selectedButton === "pregledNaPoeni" ? (
+                            <>
+                                {filterDataByCategory(selectedTitle).map((item, index) => {
+                                    return (
+                                        <div key={index} className={`filterDataCategory`} onClick={() => window.location.href = item.url}>
+                                             <img className="imgFrames" src={`/assets/images/frame.jpg`} alt={`Frame ${index}`} />
+                                            <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" status={item.poeni} description1={item.popust} naslovPredizvik1="naslovPredizvik" />
+                                        </div>
+                                    );
+                                })}
+                            </>
                         ) : (
                             <div className="predizviciIPoeni">
                                 <img className="imgFramePred" src="assets/images/frame.jpg" />
@@ -283,20 +343,6 @@ function ProfileStatusLayout(props) {
                                 <img className="imgFramePred1" src="assets/images/frame.jpg" />
                                 <Button classname="pregledNaPoeni" content={"Преглед на поени"} onClick={handlePregledNaPoeniClick} />
                             </div>
-                        )}
-                        {selectedButton === "pregledNaPoeni" && (
-                            <>
-                                {filterDataByCategory(selectedTitle).map((item, index) => {
-                                    const day = index + 1;
-                                    const isCompleted = completedDays[selectedTitle]?.[day];
-                                    return (
-                                        <div key={index} className={`categorywidgets ${isCompleted ? "completed" : ""}`} style={{ pointerEvents: isCompleted ? "none" : "auto" }}>
-                                            <img className="imgFrames" src={`/assets/images/frame.jpg`} alt={`Frame ${index}`} />
-                                            <ProfileStatusWidget key={item.id} className="profileWidgetsStatus" style="styles" status={item.predizvik} />
-                                        </div>
-                                    );
-                                })}
-                            </>
                         )}
                         <img className="imgFramee" src={`/assets/images/frame.jpg`} alt="Frame" />
                     </div>

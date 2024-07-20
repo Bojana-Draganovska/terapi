@@ -1,0 +1,44 @@
+[
+    {
+        "id": 0,
+        "poeni": "Поени: 35",
+        "popust": "-15% во Хотел Скардус, Попова Шапка",
+        "url": "https://ananas.mk/promo/ananas-plus-grp-hotelskardus"
+    },
+    {
+        "id": 1,
+        "poeni": "Поени: 55",
+        "popust": "-15% во Ресторан Маџо 2,0",
+        "url": "https://ananas.mk/promo/ananas-plus-grp-madzo"
+    },
+    {
+        "id": 2,
+        "poeni": "Поени: 75",
+        "popust": "-15% во The CUBE - Escape Room",
+        "url": "https://ananas.mk/promo/ananas-plus-grp-thecube"
+    },
+    {
+        "id": 3,
+        "poeni": "Поени: 100",
+        "popust": "-30% во Параглајдинг Клуб OZON",
+        "url": "https://ananas.mk/promo/ananas-plus-grp-klubozon"
+    },
+    {
+        "id": 4,
+        "poeni": "Поени: 150",
+        "popust": "-20% во ATV Adrenaline",
+        "url": "https://ananas.mk/promo/ananas-plus-grp-atvadrenaline"
+    },
+    {
+        "id": 5,
+        "poeni": "Поени: 250",
+        "popust": "-20% во Kompleks Minami, Охрид",
+        "url": "https://ananas.mk/promo/ananas-plus-grp-kompleksminami"
+    },
+    {
+        "id": 6,
+        "poeni":"Поени: 350",
+        "popust": "-3% на чартер проргамите од Havana Travel",
+        "url": "https://ananas.mk/promo/ananas-plus-grp-havanatravel"
+    }
+]
