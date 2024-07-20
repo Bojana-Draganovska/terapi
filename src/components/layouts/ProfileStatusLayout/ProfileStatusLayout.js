@@ -17,7 +17,6 @@ const db = getFirestore();
 function ProfileStatusLayout(props) {
     const [selectedTitle, setSelectedTitle] = useState("");
     const [selectedDay, setSelectedDay] = useState("");
-    const [selectedPredizvik, setSelectedPredizsvik] = useState(null);
     const [completedDays, setCompletedDays] = useState({});
     const [activePopup, setActivePopup] = useState(null);
     const [currentPassword, setCurrentPassword] = useState("");
@@ -104,7 +103,6 @@ function ProfileStatusLayout(props) {
         const categoryData = filterDataByCategory(title);
         setSelectedTitle(title);
         setSelectedDay(null);
-        setSelectedPredizsvik(null);
         setSelectedButton(null);
         setSelectedButtonZavrseno(Array(statusData.length).fill(false));
 
@@ -113,7 +111,6 @@ function ProfileStatusLayout(props) {
         if (categoryData.length > 0) {
             setCurrentIndex(0);
             setSelectedDay(categoryData[0].id);
-            setSelectedPredizsvik(categoryData[0].predizvik);
         }
     };
 
@@ -134,13 +131,6 @@ function ProfileStatusLayout(props) {
         const data = filterDataByCategory(category);
         return data.find((item) => item.id === id);
     };
-
-    useEffect(() => {
-        if (selectedTitle && selectedDay) {
-            const predizvikDetail = getDayData(selectedTitle, selectedDay);
-            setSelectedPredizsvik(predizvikDetail.predizvik);
-        }
-    }, [selectedTitle, selectedDay]);
 
     const getCategoryPoints = (index) => {
         const start = index * 7;
