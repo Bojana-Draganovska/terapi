@@ -22,7 +22,6 @@ function MentalHealth() {
  
   return (
     <>
-      <NavBar />
       <Question submain={"се борам со"} main={""} />
       <div className="mental-health-options">
       <MoodCardsLayout

@@ -5,17 +5,17 @@ import Question from "../../components/ui/Question/Question";
 import MoodCardsLayout from "../../components/layouts/MoodCardsLayout/MoodCardsLayout";
 // Styles
 import "../BreathingTech/BreathingTech.css";
+import { useFontSize } from "../../context/FontSizeContext";
 
 function BreathingTech() {
+  const {fontSize} = useFontSize();
   return (
     <>
-      <NavBar />
       <Question
         submain={
           "Откријте спокој во секое вдишување. Испробајте ги нашите успокојувачки техники на дишење за момент на"
         }
         main={"тишина среде хаосот."}
-        style={{color: '#0989FF'}}
         classname={"breathSpan"}
       />
       <MoodCardsLayout

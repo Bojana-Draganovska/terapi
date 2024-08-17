@@ -7,13 +7,15 @@ import "../MyProfile/MyProfile.css";
 
 function MyProfile() {
     const [currentShowStatus, setCurrentShowStatus] = useState(true);
+    const [fontSizes, setFontSizes] = useState({navbar: '16px', button: '16px', title: '24px',});
+    // const [fontSizesState, setFontSizesState] = useState(fontSizes);
 
     const handleCurrentStatus = () => {
         setCurrentShowStatus(false);
     }
+
     return (
         <>
-            <NavBar />
             <div className="profileContainer">
                 {currentShowStatus ? (
                     <>

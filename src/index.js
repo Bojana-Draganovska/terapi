@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ColorProvider } from "./context/ColorContext";
 // Pages
 import HomePage from "./pages/HomePage/HomePage";
 import EmergencyHelp from "./pages/EmergencyHelp/EmergencyHelp";
@@ -18,27 +19,33 @@ import BreathingCondition from "./pages/BreathingCondition/BreathingCondition";
 import FAQ from "./pages/FAQ/FAQ";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import VideoBreathingTech from "./pages/VideoBreathingTech/VideoBreathingTech";
-
+import NavBar from "./components/ui/NavBar/NavBar";
+import { FontSizeProvider } from "./context/FontSizeContext";
 
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/emergency-help" element={<EmergencyHelp />} />
-      <Route path="/mental-health" element={<MentalHealth />} />
-      <Route path="/breathing" element={<BreathingTech />} />
-      <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/health-selected/:title" element={<MentalCondition/>} />
-      <Route path="/breathing-tech/:title" element={<BreathingCondition/>} />
-      <Route path="/video-breath" element={<VideoBreathingTech/>}/>
-      <Route path="/faq" element={<FAQ/>}/>
-      <Route path="/registration" element={<Registration />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/my-profile" element={<MyProfile/>}/>
-    </Routes>
+  <ColorProvider>
+    <FontSizeProvider>
+      <NavBar/>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/emergency-help" element={<EmergencyHelp />} />
+          <Route path="/mental-health" element={<MentalHealth />} />
+          <Route path="/breathing" element={<BreathingTech />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/health-selected/:title" element={<MentalCondition/>} />
+          <Route path="/breathing-tech/:title" element={<BreathingCondition/>} />
+          <Route path="/video-breath" element={<VideoBreathingTech/>}/>
+          <Route path="/faq" element={<FAQ/>}/>
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/my-profile" element={<MyProfile/>}/>
+        </Routes>
+        </FontSizeProvider>
+    </ColorProvider>
   </BrowserRouter>
 );
 

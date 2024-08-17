@@ -9,7 +9,6 @@ import Button from "../../components/ui/Button/Button";
 function Login(props) {
   return (
     <>
-      <NavBar />
       <LoginLayout />
     </>
   );

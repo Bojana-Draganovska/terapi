@@ -18,7 +18,6 @@ function HomePage() {
   console.log(handleMoodCardClick);
   return (
     <div className="container">
-      <NavBar />
       <div>
         {showMoodCards ? (
           <>

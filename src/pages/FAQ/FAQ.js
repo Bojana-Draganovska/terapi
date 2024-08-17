@@ -9,7 +9,6 @@ import "../FAQ/FAQ.css"
 function FAQ(){
    return(
     <>
-       <NavBar/>
        <Question/>
        <FAQLayout 
           question1={"Колку се сигурни апликациите за ментално здравје?"}

@@ -10,6 +10,7 @@ import AnswerLayout from "../AnswerLayout/AnswerLayout";
 import Button from "../../ui/Button/Button";
 import { Link, useLocation } from "react-router-dom";
 import { auth } from "../../../config/firebase";
+import { useFontSize } from "../../../context/FontSizeContext";
 
 function QuestionLayout() {
   const [currentQuastion, setCurrentQuastion] = useState(0);
@@ -18,7 +19,7 @@ function QuestionLayout() {
   const currentQuestioN = defaultD[currentQuastion];
   const [user, setUser] = useState(null);
   const location = useLocation();
-
+  const {fontSize} = useFontSize();
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
@@ -63,7 +64,7 @@ function QuestionLayout() {
         {isComplete ? (
           <>
             <Question />
-            <p className="textP">{result.finalDescription}</p>
+            <p className="textP" style={{fontSize}}>{result.finalDescription}</p>
             {!user && (
               <>
                 <div className="footer">

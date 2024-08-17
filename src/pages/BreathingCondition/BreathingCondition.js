@@ -8,7 +8,6 @@ import "../BreathingCondition/BreathingCondition.css"
 function BreathingCondition(){
     return(
         <>
-            <NavBar/>
             <BreathingConditionLayout/>
         </>
     )

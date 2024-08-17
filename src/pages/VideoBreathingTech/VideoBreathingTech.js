@@ -29,7 +29,6 @@ function VideoBreathingTech() {
 
     return (
         <>
-            <NavBar />
             {condition && (
                 <Title className="title" img="/assets/icons/lineback.svg" onClick={handleBackClick} title={condition.title} />
             )}

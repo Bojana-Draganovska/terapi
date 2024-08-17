@@ -15,7 +15,6 @@ function MentalCondition(props){
 
     return(
         <>
-            <NavBar/>
             <MentalConditionLayout title={props.title} img={props.img} description={props.description}/>    
         </>
     )

@@ -9,8 +9,7 @@ import Button from "../../components/ui/Button/Button";
 function Registration(props) {
 return (
     <>
-    <NavBar />
-    <RegistrationLayout />
+     <RegistrationLayout />
     </>
 )
 }
