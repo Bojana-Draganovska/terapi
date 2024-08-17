@@ -1,11 +1,11 @@
 //UI
-import { useFontSize } from "../../../context/FontSizeContext";
+import { useFont } from "../../../context/FontContext";
 import Title from "../../ui/Title/Title";
 //Style
 import "../MentalConditionWidget/MentalConditionWidget.css"
 
 function MentalConditionWidget(props) {
-  const {fontSize} = useFontSize();
+  const {fontSize, fontFamily} = useFont();
   const descriptionParagraphs = props.description.split('\n').map((text, index) => (
     <p key={index}>{text}</p>
   ));
@@ -14,7 +14,7 @@ function MentalConditionWidget(props) {
     <Title className="title" img="/assets/icons/vector.svg" title={props.title}/>
       <div className="mentalCondition">
         <img className="mentalConditionImage" src={props.image} alt={props.title}/>
-        <div className="mentalConditionInfo" style={{fontSize}}>{descriptionParagraphs}</div>
+        <div className="mentalConditionInfo" style={{fontSize, fontFamily}}>{descriptionParagraphs}</div>
       </div>
     </>
   );

@@ -1,13 +1,14 @@
 // Styles
-import { useFontSize } from '../../../context/FontSizeContext';
+import { useFont } from '../../../context/FontContext';
 import '../Question/Question.css';
 
 function Question (props) {
-    const { fontSize, defaultSizes } = useFontSize();
+    const { fontSize, defaultSizes, fontFamily } = useFont();
     const componentSize = fontSize || defaultSizes.question;
 
     const style = {
         fontSize: componentSize,
+        fontFamily: fontFamily,
     };
     return(
         <div className='questionBox'>

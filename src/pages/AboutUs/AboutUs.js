@@ -1,10 +1,10 @@
 // UI
 import NavBar from "../../components/ui/NavBar/NavBar";
 import Question from "../../components/ui/Question/Question";
-import { useFontSize } from "../../context/FontSizeContext";
+import { useFont } from "../../context/FontContext";
 
 function AboutUs() {
-  const {fontSize} = useFontSize();
+  const {fontSize, fontFamily} = useFont();
   return (
     <>
       <Question
@@ -13,9 +13,9 @@ function AboutUs() {
         }
         main={"Во суштина, оваа апликација го надминува дигиталниот свет, станува пријател, довереник и катализатор за позитивни промени. Како што се допира во длабочините на емоционалните предизвици, таа носи позитивни промени за посветли денови и отпорен дух за оние кои бараат утеха во дланката на нивните раце. Додека ја истражувате „Терапи“, чуствувајте ја како безбедно место – простор слободен од осуди, каде можете да истражите, учите и растете. „Терапи“ не е само апликација, тоа е посветеност на вашата емоционална благосостојба."}   
         classname={"aboutUs"}
-        style={{fontSize}}
+        style={{fontSize, fontFamily}}
       />
-      <span style={{fontSize}}>Со љубов,</span><br/>
+      <span style={{fontSize, fontFamily}}>Со љубов,</span><br/>
       <span style={{color: "#0989FF", fontSize, paddingBottom: 20 }}>од тимот.</span>
     </>
   );

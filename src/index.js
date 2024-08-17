@@ -20,7 +20,7 @@ import FAQ from "./pages/FAQ/FAQ";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import VideoBreathingTech from "./pages/VideoBreathingTech/VideoBreathingTech";
 import NavBar from "./components/ui/NavBar/NavBar";
-import { FontSizeProvider } from "./context/FontSizeContext";
+import { FontProvider } from "./context/FontContext";
 
 
 
@@ -28,7 +28,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
   <ColorProvider>
-    <FontSizeProvider>
+    <FontProvider>
       <NavBar/>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -44,7 +44,7 @@ root.render(
           <Route path="/login" element={<Login />} />
           <Route path="/my-profile" element={<MyProfile/>}/>
         </Routes>
-        </FontSizeProvider>
+        </FontProvider>
     </ColorProvider>
   </BrowserRouter>
 );

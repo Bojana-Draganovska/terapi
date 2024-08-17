@@ -5,10 +5,8 @@ import Question from "../../components/ui/Question/Question";
 import MoodCardsLayout from "../../components/layouts/MoodCardsLayout/MoodCardsLayout";
 // Styles
 import "../BreathingTech/BreathingTech.css";
-import { useFontSize } from "../../context/FontSizeContext";
 
 function BreathingTech() {
-  const {fontSize} = useFontSize();
   return (
     <>
       <Question

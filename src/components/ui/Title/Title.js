@@ -1,14 +1,15 @@
 // Styles
 import React from 'react';
-import { useFontSize } from '../../../context/FontSizeContext';
+import { useFont } from '../../../context/FontContext';
 import '../Title/Title.css';
 
 function Title(props) {
-    const { fontSize, defaultSizes } = useFontSize();
+    const { fontSize, defaultSizes, fontFamily } = useFont();
     const componentSize = fontSize || defaultSizes.title;
 
     const style = {
         fontSize: componentSize,
+        fontFamily: fontFamily,
     };
     return (
         <div className={`title ${props.className ? props.className : ''}`}>

@@ -1,13 +1,14 @@
 //Style
-import { useFontSize } from "../../../context/FontSizeContext";
+import { useFont } from "../../../context/FontContext";
 import "../ProfileStatusWidget/ProfileStatusWidget.css";
 
 function ProfileStatusWidget(props) {
-    const {fontSize, defaultSizes} = useFontSize();
+    const {fontSize, defaultSizes, fontFamily} = useFont();
     const componentSize = fontSize || defaultSizes.widget;
 
     const style = {
         fontSize: componentSize,
+        fontFamily: fontFamily,
     };
 
     return (

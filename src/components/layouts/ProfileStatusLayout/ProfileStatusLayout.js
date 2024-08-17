@@ -13,7 +13,8 @@ import { auth, logout, fetchUserPoints, saveUserPoints } from "../../../config/f
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 import { updatePassword } from "firebase/auth";
 import FontSizeSelector from "../../ui/FontSizeSelector/FontSizeSelector";
-import { useFontSize } from "../../../context/FontSizeContext";
+import { useFont } from "../../../context/FontContext";
+import FontFamilySelector from "../../ui/FontFamilySelector/FontFamilySelector";
 
 
 const db = getFirestore();
@@ -38,7 +39,7 @@ function ProfileStatusLayout(props) {
     const audioRef = useRef(new Audio("/assets/audio/meditacijaWomen.mp3"));
     const intervalRef = useRef(null);
     const navigate = useNavigate();
-    const {fontSize} = useFontSize();
+    const {fontSize, fontFamily} = useFont();
     const categories = ["Анксиозност", "Менаџирање со гнев", "Депресија"];
 
     useEffect(() => {
@@ -338,9 +339,9 @@ function ProfileStatusLayout(props) {
                         ) : (
                             <div className="predizviciIPoeni">
                                 <img className="imgFramePred" src="assets/images/frame.jpg" />
-                                <Button style={{fontSize}} classname="predizvici" content={"Предизвици"} onClick={handlePredizviciClick} />
+                                <Button style={{fontSize, fontFamily}} classname="predizvici" content={"Предизвици"} onClick={handlePredizviciClick} />
                                 <img className="imgFramePred1" src="assets/images/frame.jpg" />
-                                <Button style={{fontSize}} classname="pregledNaPoeni" content={"Преглед на поени"} onClick={handlePregledNaPoeniClick} />
+                                <Button style={{fontSize, fontFamily}} classname="pregledNaPoeni" content={"Преглед на поени"} onClick={handlePregledNaPoeniClick} />
                             </div>
                         )}
                         <img className="imgFramee" src={`/assets/images/frame.jpg`} alt="Frame" />
@@ -350,7 +351,7 @@ function ProfileStatusLayout(props) {
                 <>
                     {currentLayout ? (
                         <>
-                            <Quastion style={{ fontSize, fontWeight: "lighter", position: "relative", bottom: 30 }} main={"Медитирајте со нас"} />
+                            <Quastion style={{ fontSize, fontFamily, fontWeight: "lighter", position: "relative", bottom: 30 }} main={"Медитирајте со нас"} />
                             <div className="playMode">
                                 <input style={{ width: 600 }} type="range" min="0" max={duration} value={currentTime} onChange={handleChange} step={0.1} />
                                 <img onClick={handleStartStop} className="playAndStop" src="assets/icons/playandstop.svg" />
@@ -379,11 +380,11 @@ function ProfileStatusLayout(props) {
                             </div>
                             <ProfileStatusWidget className="profileWidgetStatus" />
                             <div className="buttonsProfile">
-                                <Button classname="buttonProfile" style={{fontSize}} content={"Преглед на податоци"} onClick={() => handleTogglePopup(1)} />
-                                <Button classname="buttonProfile" style={{fontSize}} content={"Ажурирај податоци"} onClick={() => handleTogglePopup(2)} />
-                                <Button classname="buttonProfile" style={{fontSize}} content={"Правила и обврски"} onClick={() => handleTogglePopup(3)} />
-                                <Button classname="buttonProfile" style={{fontSize}} content={"Персонализација"} onClick={() => handleTogglePopup(4)} />
-                                <Button classname="buttonProfile" style={{fontSize}} content={"Одјава"} onClick={handleLogout} />
+                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Преглед на податоци"} onClick={() => handleTogglePopup(1)} />
+                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Ажурирај податоци"} onClick={() => handleTogglePopup(2)} />
+                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Правила и обврски"} onClick={() => handleTogglePopup(3)} />
+                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Персонализација"} onClick={() => handleTogglePopup(4)} />
+                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Одјава"} onClick={handleLogout} />
                             </div>
                             {activePopup === 1 && (
                                 <div>
@@ -396,7 +397,7 @@ function ProfileStatusLayout(props) {
                                     <Input className="input1" type={"text"} />
                                     <Input className="input2" type={"password"} onChange={(e) => setCurrentPassword(e.target.value)} value={currentPassword} />
                                     <Input className="input3" type={"password"} onChange={(e) => setNewPassword(e.target.value)} value={newPassword} />
-                                    <Button classname="buttonAzuriraj" content={"Ажурирај"} onClick={handlePasswordUpdate} />
+                                    <Button style={{fontSize, fontFamily}} classname="buttonAzuriraj" content={"Ажурирај"} onClick={handlePasswordUpdate} />
                                 </div>
                             )}
                             {activePopup === 3 && (
@@ -418,6 +419,7 @@ function ProfileStatusLayout(props) {
                                 <div>
                                     <ProfileStatusWidget className="pregledNaPodatoci4" description="Компонента: " description1="Фонт: " description2="Боја на фонт: " description3="Позадинска боја: "/>
                                     <FontSizeSelector/>
+                                    <FontFamilySelector/>
                                 </div>
                             )}
                         </>

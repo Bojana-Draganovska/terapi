@@ -1,9 +1,9 @@
 import "../FontSizeSelector/FontSizeSelector.css";
 import React from 'react';
-import { useFontSize } from '../../../context/FontSizeContext'; 
+import { useFont } from '../../../context/FontContext'; 
 
 const FontSizeSelector = () => {
-  const { fontSize, setFontSize } = useFontSize();
+  const { fontSize, setFontSize } = useFont();
 
   const handleFontSizeChange = (event) => {
     setFontSize(event.target.value);

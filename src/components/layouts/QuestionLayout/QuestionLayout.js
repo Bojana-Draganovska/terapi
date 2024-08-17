@@ -10,7 +10,7 @@ import AnswerLayout from "../AnswerLayout/AnswerLayout";
 import Button from "../../ui/Button/Button";
 import { Link, useLocation } from "react-router-dom";
 import { auth } from "../../../config/firebase";
-import { useFontSize } from "../../../context/FontSizeContext";
+import { useFont } from "../../../context/FontContext";
 
 function QuestionLayout() {
   const [currentQuastion, setCurrentQuastion] = useState(0);
@@ -19,7 +19,7 @@ function QuestionLayout() {
   const currentQuestioN = defaultD[currentQuastion];
   const [user, setUser] = useState(null);
   const location = useLocation();
-  const {fontSize} = useFontSize();
+  const {fontSize} = useFont();
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
