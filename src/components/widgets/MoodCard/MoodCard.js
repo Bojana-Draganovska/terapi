@@ -6,12 +6,12 @@ import { useState, useEffect } from "react";
 import { useFont } from "../../../context/FontContext";
 
 function MoodCard(props) {
-  const {fontSize, fontFamily} = useFont();
+  const {styles} = useFont();
   return (
     <div className="moodCard" onClick={props.handleClick}>
       <div className="moodCardText">
-        <p className="imfeeling" style={{fontSize, fontFamily}}>{props.imfeeling}</p>
-        <span className="feel" style={{fontSize, fontFamily}}>{props.feel}</span>
+        <p className="imfeeling" style={{fontSize: styles.moodcard.fontSize, fontFamily: styles.moodcard.fontFamily, color: styles.moodcard.color, backgroundColor: styles.moodcard.backgroundColor}}>{props.imfeeling}</p>
+        <span className="feel" style={{fontSize: styles.moodcard.fontSize, fontFamily: styles.moodcard.fontFamily, color: styles.moodcard.color, backgroundColor: styles.moodcard.backgroundColor}}>{props.feel}</span>
       </div>
       <img src={props.img} alt="emotion icon"></img>
     </div>

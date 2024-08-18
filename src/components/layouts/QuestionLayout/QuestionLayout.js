@@ -19,7 +19,7 @@ function QuestionLayout() {
   const currentQuestioN = defaultD[currentQuastion];
   const [user, setUser] = useState(null);
   const location = useLocation();
-  const {fontSize} = useFont();
+  const {styles} = useFont();
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
@@ -64,7 +64,7 @@ function QuestionLayout() {
         {isComplete ? (
           <>
             <Question />
-            <p className="textP" style={{fontSize}}>{result.finalDescription}</p>
+            <p className="textP" style={{fontSize: styles.question.fontSize, fontFamily: styles.question.fontFamily, color: styles.question.color, backgroundColor: styles.question.backgroundColor}}>{result.finalDescription}</p>
             {!user && (
               <>
                 <div className="footer">

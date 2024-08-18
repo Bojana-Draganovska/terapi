@@ -3,18 +3,12 @@ import { useFont } from '../../../context/FontContext';
 import '../Question/Question.css';
 
 function Question (props) {
-    const { fontSize, defaultSizes, fontFamily } = useFont();
-    const componentSize = fontSize || defaultSizes.question;
-
-    const style = {
-        fontSize: componentSize,
-        fontFamily: fontFamily,
-    };
+    const {styles} = useFont();
     return(
         <div className='questionBox'>
             <img src="assets/icons/vector.svg" alt='vector icon'></img>
-            <p style={style} className='quastion'>{props.submain}</p>
-            <h3 style={style} className={props.classname ? props.classname : null}>{props.main}</h3>
+            <p style={{fontSize: styles.question.fontSize, fontFamily: styles.question.fontFamily, color: styles.question.color, backgroundColor: styles.question.backgroundColor}} className='quastion'>{props.submain}</p>
+            <h3 style={{fontSize: styles.question.fontSize, fontFamily: styles.question.fontFamily, color: styles.question.color, backgroundColor: styles.question.backgroundColor}} className={props.classname ? props.classname : null}>{props.main}</h3>
         </div>
     )
 }

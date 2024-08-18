@@ -15,6 +15,7 @@ import { updatePassword } from "firebase/auth";
 import FontSizeSelector from "../../ui/FontSizeSelector/FontSizeSelector";
 import { useFont } from "../../../context/FontContext";
 import FontFamilySelector from "../../ui/FontFamilySelector/FontFamilySelector";
+import PersonalizationWidget from "../../widgets/PersonalizationWidget/PersonalizationWidget";
 
 
 const db = getFirestore();
@@ -39,7 +40,7 @@ function ProfileStatusLayout(props) {
     const audioRef = useRef(new Audio("/assets/audio/meditacijaWomen.mp3"));
     const intervalRef = useRef(null);
     const navigate = useNavigate();
-    const {fontSize, fontFamily} = useFont();
+    const {styles} = useFont();
     const categories = ["Анксиозност", "Менаџирање со гнев", "Депресија"];
 
     useEffect(() => {
@@ -191,13 +192,13 @@ function ProfileStatusLayout(props) {
             <div key={dayData[currentIndex].id} className="dayDetail">
                 <img className="imgFrame2_1" src="assets/images/frame.jpg" alt="imgFrame2" />
                 <ProfileStatusWidget key={dayData[currentIndex].id} poeni={`Поени: ${dayData[currentIndex].poeni}`} className="styles" style="fontBold" points={dayData[currentIndex].poeni} status={dayData[currentIndex].naslov} description={dayData[currentIndex].descrition} />
-                <Button classname="btnFinish" content={"Завршено"} onClick={handleCompleteClick} disabled={selectedButtonZaveseno[currentIndex]} style={{ opacity: selectedButtonZaveseno[currentIndex] ? 0.5 : 1, fontSize }} />
+                <Button classname="btnFinish" content={"Завршено"} onClick={handleCompleteClick} disabled={selectedButtonZaveseno[currentIndex]} style={{ opacity: selectedButtonZaveseno[currentIndex] ? 0.5 : 1, fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor }} />
                 {currentIndex === 0 ? (
                     <img className="linenext" src="/assets/icons/linenext.svg" alt="linenext" onClick={handleNextClick} />
                 ) : currentIndex === dayData.length - 1 ? (
                     <>
                         <img className="lineback" src="/assets/icons/lineback.svg" alt="lineback" onClick={handleBackClick} />
-                        <Button style={{fontSize}} classname="back" content={"Назад"} onClick={handleNavigateBack} />
+                        <Button style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} classname="back" content={"Назад"} onClick={handleNavigateBack} />
                     </>
                 ) : (
                     <>
@@ -339,9 +340,9 @@ function ProfileStatusLayout(props) {
                         ) : (
                             <div className="predizviciIPoeni">
                                 <img className="imgFramePred" src="assets/images/frame.jpg" />
-                                <Button style={{fontSize, fontFamily}} classname="predizvici" content={"Предизвици"} onClick={handlePredizviciClick} />
+                                <Button style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} classname="predizvici" content={"Предизвици"} onClick={handlePredizviciClick} />
                                 <img className="imgFramePred1" src="assets/images/frame.jpg" />
-                                <Button style={{fontSize, fontFamily}} classname="pregledNaPoeni" content={"Преглед на поени"} onClick={handlePregledNaPoeniClick} />
+                                <Button style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} classname="pregledNaPoeni" content={"Преглед на поени"} onClick={handlePregledNaPoeniClick} />
                             </div>
                         )}
                         <img className="imgFramee" src={`/assets/images/frame.jpg`} alt="Frame" />
@@ -351,12 +352,12 @@ function ProfileStatusLayout(props) {
                 <>
                     {currentLayout ? (
                         <>
-                            <Quastion style={{ fontSize, fontFamily, fontWeight: "lighter", position: "relative", bottom: 30 }} main={"Медитирајте со нас"} />
+                            <Quastion style={{ fontSize: styles.question.fontSize, fontFamily: styles.question.fontFamily, color: styles.question.color, backgroundColor: styles.question.backgroundColor, fontWeight: "lighter", position: "relative", bottom: 30 }} main={"Медитирајте со нас"} />
                             <div className="playMode">
                                 <input style={{ width: 600 }} type="range" min="0" max={duration} value={currentTime} onChange={handleChange} step={0.1} />
                                 <img onClick={handleStartStop} className="playAndStop" src="assets/icons/playandstop.svg" />
                             </div>
-                            <Button style={{fontSize}} classname={"changeVoice"} content={"Смени глас"} onClick={changeVoice} />
+                            <Button style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} classname={"changeVoice"} content={"Смени глас"} onClick={changeVoice} />
                         </>
                     ) : (
                         <>
@@ -380,11 +381,11 @@ function ProfileStatusLayout(props) {
                             </div>
                             <ProfileStatusWidget className="profileWidgetStatus" />
                             <div className="buttonsProfile">
-                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Преглед на податоци"} onClick={() => handleTogglePopup(1)} />
-                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Ажурирај податоци"} onClick={() => handleTogglePopup(2)} />
-                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Правила и обврски"} onClick={() => handleTogglePopup(3)} />
-                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Персонализација"} onClick={() => handleTogglePopup(4)} />
-                                <Button classname="buttonProfile" style={{fontSize, fontFamily}} content={"Одјава"} onClick={handleLogout} />
+                                <Button classname="buttonProfile" style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} content={"Преглед на податоци"} onClick={() => handleTogglePopup(1)} />
+                                <Button classname="buttonProfile" style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} content={"Ажурирај податоци"} onClick={() => handleTogglePopup(2)} />
+                                <Button classname="buttonProfile" style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} content={"Правила и обврски"} onClick={() => handleTogglePopup(3)} />
+                                <Button classname="buttonProfile" style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} content={"Персонализација"} onClick={() => handleTogglePopup(4)} />
+                                <Button classname="buttonProfile" style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} content={"Одјава"} onClick={handleLogout} />
                             </div>
                             {activePopup === 1 && (
                                 <div>
@@ -397,7 +398,7 @@ function ProfileStatusLayout(props) {
                                     <Input className="input1" type={"text"} />
                                     <Input className="input2" type={"password"} onChange={(e) => setCurrentPassword(e.target.value)} value={currentPassword} />
                                     <Input className="input3" type={"password"} onChange={(e) => setNewPassword(e.target.value)} value={newPassword} />
-                                    <Button style={{fontSize, fontFamily}} classname="buttonAzuriraj" content={"Ажурирај"} onClick={handlePasswordUpdate} />
+                                    <Button style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} classname="buttonAzuriraj" content={"Ажурирај"} onClick={handlePasswordUpdate} />
                                 </div>
                             )}
                             {activePopup === 3 && (
@@ -418,8 +419,7 @@ function ProfileStatusLayout(props) {
                             {activePopup === 4 && (
                                 <div>
                                     <ProfileStatusWidget className="pregledNaPodatoci4" description="Компонента: " description1="Фонт: " description2="Боја на фонт: " description3="Позадинска боја: "/>
-                                    <FontSizeSelector/>
-                                    <FontFamilySelector/>
+                                    <PersonalizationWidget/>
                                 </div>
                             )}
                         </>

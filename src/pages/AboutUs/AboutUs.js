@@ -4,7 +4,7 @@ import Question from "../../components/ui/Question/Question";
 import { useFont } from "../../context/FontContext";
 
 function AboutUs() {
-  const {fontSize, fontFamily} = useFont();
+  const {styles} = useFont();
   return (
     <>
       <Question
@@ -13,10 +13,10 @@ function AboutUs() {
         }
         main={"Во суштина, оваа апликација го надминува дигиталниот свет, станува пријател, довереник и катализатор за позитивни промени. Како што се допира во длабочините на емоционалните предизвици, таа носи позитивни промени за посветли денови и отпорен дух за оние кои бараат утеха во дланката на нивните раце. Додека ја истражувате „Терапи“, чуствувајте ја како безбедно место – простор слободен од осуди, каде можете да истражите, учите и растете. „Терапи“ не е само апликација, тоа е посветеност на вашата емоционална благосостојба."}   
         classname={"aboutUs"}
-        style={{fontSize, fontFamily}}
+        style={{fontSize: styles.question.fontSize, fontFamily: styles.question.fontFamily, color: styles.question.color, backgroundColor: styles.question.backgroundColor}}
       />
-      <span style={{fontSize, fontFamily}}>Со љубов,</span><br/>
-      <span style={{color: "#0989FF", fontSize, paddingBottom: 20 }}>од тимот.</span>
+      <span style={{fontSize: styles.text.fontSize, fontFamily: styles.text.fontFamily, color: styles.question.color, backgroundColor: styles.question.backgroundColor}}>Со љубов,</span><br/>
+      <span style={{color: "#0989FF", fontSize: styles.text.fontSize, fontFamily: styles.text.fontFamily, color: styles.text.color, backgroundColor: styles.text.backgroundColor, paddingBottom: 20 }}>од тимот.</span>
     </>
   );
 }

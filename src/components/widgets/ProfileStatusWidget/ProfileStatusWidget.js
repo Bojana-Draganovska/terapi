@@ -3,17 +3,11 @@ import { useFont } from "../../../context/FontContext";
 import "../ProfileStatusWidget/ProfileStatusWidget.css";
 
 function ProfileStatusWidget(props) {
-    const {fontSize, defaultSizes, fontFamily} = useFont();
-    const componentSize = fontSize || defaultSizes.widget;
-
-    const style = {
-        fontSize: componentSize,
-        fontFamily: fontFamily,
-    };
+    const {styles} = useFont();
 
     return (
         <>
-            <div className={`profileStatus ${props.className ? props.className : ''}`} poeni={props.poeni} style={style}>
+            <div className={`profileStatus ${props.className ? props.className : ''}`} poeni={props.poeni} style={{fontSize: styles.widget.fontSize, fontFamily: styles.widget.fontFamily, color: styles.widget.color, backgroundColor: styles.widget.backgroundColor}}>
             <span className={"points"}>{props.poeni}</span>
             <p className={`${props.style ? props.style : ''}`}>{props.status}</p>
             <span className={`description ${props.naslovPredizvik ? props.naslovPredizvik : ''}`}>{props.description}</span>

@@ -13,6 +13,7 @@ const FontFamilySelector = () => {
       <div>
         <label htmlFor="font-family-picker">Select Font Family:</label>
         <select id="font-family-picker" onChange={handleFontFamilyChange} value={fontFamily}>
+          <option value="IBM Plex Mono">Default</option>
           <option value="Montserrat">Montserrat</option>
           <option value="Roboto">Roboto</option>
           <option value="Merriweather">Merriweather</option>
