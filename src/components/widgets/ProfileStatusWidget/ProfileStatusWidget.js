@@ -14,6 +14,7 @@ function ProfileStatusWidget(props) {
             <span className={`description ${props.naslovPredizvik1 ? props.naslovPredizvik1 : ''}`}>{props.description1}</span>
             <span className={`description ${props.naslovPredizvik2 ? props.naslovPredizvik2 : ''}`}>{props.description2}</span>
             <span className={`description ${props.naslovPredizvik3 ? props.naslovPredizvik3 : ''}`}>{props.description3}</span>
+            <span className={`description ${props.naslovPredizvik4 ? props.naslovPredizvik4 : ''}`}>{props.description4}</span>
             </div>
         </>
     )

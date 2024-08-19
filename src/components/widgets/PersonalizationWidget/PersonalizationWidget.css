@@ -1,0 +1,185 @@
+.progressContainter{
+    display: flex;
+    flex-direction: column;
+    width: 24.3%;
+    height: 318px;
+    position: absolute;
+    top: 74%;
+    left: 16%;
+}
+.buttonProgress1{
+    position: absolute;
+    bottom: 80%;
+    left: 50%;
+    width: 45%;
+    font-size: 15px;
+    height: 40px;
+    background-color: #8ABDD8;
+    padding-top: 3%;
+    padding-left: 12%;
+}
+.buttonProgress2{
+    position: absolute;
+    bottom: 60%;
+    left: 50%;
+    width: 45%;
+    font-size: 15px;
+    height: 40px;
+    background-color: #8ABDD8;
+    padding-top: 3%;
+    padding-left: 12%;
+}
+.buttonProgress3{
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    width: 45%;
+    font-size: 15px;
+    height: 40px;
+    background-color: #8ABDD8;
+    padding-top: 3%;
+    padding-left: 12%;
+}
+.buttonProgress4{
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    width: 45%;
+    font-size: 15px;
+    height: 40px;
+    background-color: #8ABDD8;
+    padding-top: 3%;
+    padding-left: 12%;
+}
+.buttonProgress5{
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    width: 45%;
+    font-size: 15px;
+    height: 40px;
+    background-color: #8ABDD8;
+    padding-top: 3%;
+    padding-left: 12%;
+}
+.progress1{
+    display: block;
+    background-color: #8ABDD8;
+    position: absolute;
+    top: 22.5%;
+    left: 49.5%;
+    text-align: start;
+    line-height: 35px;
+    height: 30%;
+    width: 29%;
+}
+.progress2{
+    display: block;
+    background-color: #8ABDD8;
+    position: absolute;
+    top: 42%;
+    left: 49.5%;
+    text-align: start;
+    line-height: 35px;
+    height: 30%;
+    width: 29%;
+}
+.progress3{
+    background-color: #7D9AF2;
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    height: 13%;
+    width: 45%;
+}
+.progress4{
+    display: block;
+    background-color: #8ABDD8;
+    position: absolute;
+    top: 35%;
+    left: 49.5%;
+    text-align: start;
+    line-height: 35px;
+    height: 10%;
+    width: 29%;
+}
+.progress5{
+    background-color: #7D9AF2;
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    height: 13%;
+    width: 45%;
+}
+.custom-select1 select {
+    color: black;
+    background-color: #8ABDD8;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    overflow-y: hidden;
+    outline: none;
+    position: relative;
+    left: 22%;
+    top: 72px;
+    height: 155px;
+    width: 43%;
+}
+
+.custom-select1 select option {
+    padding: 10px;
+    background-color: #8ABDD8;
+    
+}
+.custom-select1 select option:checked {
+    color: #D21890;
+    font-weight: bold;
+}
+.custom-select2 select {
+    color: black;
+    background-color: #8ABDD8;
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    overflow-y: hidden;
+    outline: none;
+    position: relative;
+    left: 22%;
+    top: 135px;
+    height: 153px;
+    width: 43%;
+}
+
+.custom-select2 select option {
+    padding: 10px;
+    background-color: #8ABDD8;
+    
+}
+.custom-select2 select option:checked {
+    color: #D21890;
+    font-weight: bold;
+}
+.custom-select4 select {
+    color: black;
+    background-color: #8ABDD8;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    overflow-y: hidden;
+    outline: none;
+    position: relative;
+    left: 22%;
+    top: 116px;
+    height: 80px;
+    width: 43%;
+    text-align: center;
+}
+
+.custom-select4 select option {
+    background-color: #8ABDD8;
+    
+}
+.custom-select4 select option:checked {
+    color: #D21890;
+    font-weight: bold;
+}

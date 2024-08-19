@@ -396,7 +396,7 @@ function ProfileStatusLayout(props) {
                             {activePopup === 2 && (
                                 <div>
                                     <ProfileStatusWidget className="pregledNaPodatoci2" description={"Електронски маил: "} description1={"Стара лозинка:"} description2={"Нова лозинка:"} />
-                                    <Input value={""} className="input1" type={"text"} />
+                                    <Input className="input1" type={"text"} />
                                     <Input className="input2" type={"password"} onChange={(e) => setCurrentPassword(e.target.value)} value={currentPassword} />
                                     <Input className="input3" type={"password"} onChange={(e) => setNewPassword(e.target.value)} value={newPassword} />
                                     <Button style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} classname="buttonAzuriraj" content={"Ажурирај"} onClick={handlePasswordUpdate} />
@@ -419,7 +419,7 @@ function ProfileStatusLayout(props) {
                             )}
                             {activePopup === 4 && (
                                 <div>
-                                    <ProfileStatusWidget className="pregledNaPodatoci4" description="Компонента: " description1="Фонт: " description2="Боја на фонт: " description3="Позадинска боја: "/>
+                                    <ProfileStatusWidget className="pregledNaPodatoci4" description="Компонента:" description1="Фонт:" description2="Боја на фонт:" description3="Големина на фонт:" description4="Позадинска боја:"/>
                                     <PersonalizationWidget/>
                                 </div>
                             )}
