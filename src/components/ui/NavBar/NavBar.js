@@ -26,13 +26,13 @@ function NavBar({user}) {
       }, []);
 
     return (
-        <div className='navigationBar'>
+        <div className='navigationBar' style={{backgroundColor: styles.navbar.backgroundColor}}>
             <Logo />
-            <Link to="/emergency-help" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color, backgroundColor: styles.navbar.backgroundColor}} className={location.pathname === '/emergency-help' ? 'active' : ''}>Итна помош</Link>
-            <Link to="/mental-health" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color, backgroundColor: styles.navbar.backgroundColor}} className={location.pathname === '/mental-health' ? 'active' : ''}>Ментално здравје</Link>
-            <Link to="/breathing" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color, backgroundColor: styles.navbar.backgroundColor}} className={location.pathname === '/breathing' ? 'active' : ''}>Техники за дишење</Link>
-            <Link to="/about-us" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color, backgroundColor: styles.navbar.backgroundColor}} className={location.pathname === '/about-us' ? 'active' : ''}>За нас</Link>
-            <Link to="/faq" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color, backgroundColor: styles.navbar.backgroundColor}} className={location.pathname === '/faq' ? 'active' : ''}>FAQ</Link>
+            <Link to="/emergency-help" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color}} className={location.pathname === '/emergency-help' ? 'active' : ''}>Итна помош</Link>
+            <Link to="/mental-health" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color}} className={location.pathname === '/mental-health' ? 'active' : ''}>Ментално здравје</Link>
+            <Link to="/breathing" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color}} className={location.pathname === '/breathing' ? 'active' : ''}>Техники за дишење</Link>
+            <Link to="/about-us" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color}} className={location.pathname === '/about-us' ? 'active' : ''}>За нас</Link>
+            <Link to="/faq" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color}} className={location.pathname === '/faq' ? 'active' : ''}>FAQ</Link>
             {currentUser ? (
                 <Link to="/my-profile">
                     <Button content={"Профил"} style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.navbar.backgroundColor}}/>

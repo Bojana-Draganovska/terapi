@@ -5,9 +5,9 @@ import "../AnswerCard/AnswerCard.css";
 function AnswerCard({answer, onClick}) {
     const {styles} = useFont();
     return (
-        <div className="answerCard" onClick={() => onClick(answer)}>
+        <div className="answerCard" style={{backgroundColor: styles.widget.backgroundColor}} onClick={() => onClick(answer)}>
             <div className="answerCardText">
-                <p className="answer" style={{fontSize: styles.moodcard.fontSize, fontFamily: styles.moodcard.fontFamily, color: styles.moodCard.color, backgroundColor: styles.moodCard.backgroundColor}}>{answer}</p>
+                <p className="answer" style={{fontSize: styles.widget.fontSize, fontFamily: styles.widget.fontFamily, color: styles.widget.color}}>{answer}</p>
             </div>
         </div>
     )

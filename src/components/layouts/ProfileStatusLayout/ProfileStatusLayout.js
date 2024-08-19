@@ -16,6 +16,7 @@ import FontSizeSelector from "../../ui/FontSizeSelector/FontSizeSelector";
 import { useFont } from "../../../context/FontContext";
 import FontFamilySelector from "../../ui/FontFamilySelector/FontFamilySelector";
 import PersonalizationWidget from "../../widgets/PersonalizationWidget/PersonalizationWidget";
+import ProgressWidget from "../../widgets/ProgressWidget/ProgressWidget";
 
 
 const db = getFirestore();
@@ -191,7 +192,7 @@ function ProfileStatusLayout(props) {
         return dayData.length > 0 ? (
             <div key={dayData[currentIndex].id} className="dayDetail">
                 <img className="imgFrame2_1" src="assets/images/frame.jpg" alt="imgFrame2" />
-                <ProfileStatusWidget key={dayData[currentIndex].id} poeni={`Поени: ${dayData[currentIndex].poeni}`} className="styles" style="fontBold" points={dayData[currentIndex].poeni} status={dayData[currentIndex].naslov} description={dayData[currentIndex].descrition} />
+                <ProgressWidget key={dayData[currentIndex].id} poeni={`Поени: ${dayData[currentIndex].poeni}`} className="styles" style="fontBold" points={dayData[currentIndex].poeni} status={dayData[currentIndex].naslov} description={dayData[currentIndex].descrition} />
                 <Button classname="btnFinish" content={"Завршено"} onClick={handleCompleteClick} disabled={selectedButtonZaveseno[currentIndex]} style={{ opacity: selectedButtonZaveseno[currentIndex] ? 0.5 : 1, fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor }} />
                 {currentIndex === 0 ? (
                     <img className="linenext" src="/assets/icons/linenext.svg" alt="linenext" onClick={handleNextClick} />
@@ -363,20 +364,20 @@ function ProfileStatusLayout(props) {
                         <>
                             <div onClick={handleHelpClick}>
                                 <img className="imgFrame4" src="assets/images/frame.jpg" alt="imgFrame4" />
-                                <ProfileStatusWidget className="styleWidget4" status={"Помош сега"} />
+                                <ProgressWidget className="styleWidget4" status={"Помош сега"} />
                             </div>
                             <div className="profileStatusLayout">
                                 <div onClick={() => handleWidgetClick(0)}>
                                     <img className="imgFrame1" src="assets/images/frame.jpg" alt="imgFrame1" poeni={getCategoryPoints(0)} />
-                                    <ProfileStatusWidget className="styleWidget1" status={props.status1} />
+                                    <ProgressWidget className="styleWidget1" status={props.status1} />
                                 </div>
                                 <div onClick={() => handleWidgetClick(1)}>
                                     <img className="imgFrame2" src="assets/images/frame.jpg" alt="imgFrame2" poeni={getCategoryPoints(1)} />
-                                    <ProfileStatusWidget className="styleWidget2" status={props.status2} />
+                                    <ProgressWidget className="styleWidget2" status={props.status2} />
                                 </div>
                                 <div onClick={() => handleWidgetClick(2)}>
                                     <img className="imgFrame3" src="assets/images/frame.jpg" alt="imgFrame3" poeni={getCategoryPoints(2)} />
-                                    <ProfileStatusWidget className="styleWidget3" status={props.status3} />
+                                    <ProgressWidget className="styleWidget3" status={props.status3} />
                                 </div>
                             </div>
                             <ProfileStatusWidget className="profileWidgetStatus" />
@@ -395,7 +396,7 @@ function ProfileStatusLayout(props) {
                             {activePopup === 2 && (
                                 <div>
                                     <ProfileStatusWidget className="pregledNaPodatoci2" description={"Електронски маил: "} description1={"Стара лозинка:"} description2={"Нова лозинка:"} />
-                                    <Input className="input1" type={"text"} />
+                                    <Input value={""} className="input1" type={"text"} />
                                     <Input className="input2" type={"password"} onChange={(e) => setCurrentPassword(e.target.value)} value={currentPassword} />
                                     <Input className="input3" type={"password"} onChange={(e) => setNewPassword(e.target.value)} value={newPassword} />
                                     <Button style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.button.backgroundColor}} classname="buttonAzuriraj" content={"Ажурирај"} onClick={handlePasswordUpdate} />
