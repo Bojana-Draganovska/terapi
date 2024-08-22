@@ -35,7 +35,7 @@ function NavBar({user}) {
             <Link to="/faq" style={{fontSize: styles.navbar.fontSize, fontFamily: styles.navbar.fontFamily, color: styles.navbar.color}} className={location.pathname === '/faq' ? 'active' : ''}>FAQ</Link>
             {currentUser ? (
                 <Link to="/my-profile">
-                    <Button content={"Профил"} style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.navbar.backgroundColor}}/>
+                    <Button classname="button" content={"Профил"} style={{fontSize: styles.button.fontSize, fontFamily: styles.button.fontFamily, color: styles.button.color, backgroundColor: styles.navbar.backgroundColor}}/>
                 </Link>
             ) : (
                 <Link to={"/login"}>

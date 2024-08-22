@@ -1,8 +1,8 @@
 .faqWidget{
     border: 1px solid black;
     border-radius: 15px;
-    font-size: 15px;
-    width: 75%;
+    font-size: 15px !important;
+    width: 75% !important;
 }
 .imgFrame{
     width: 7%;
@@ -10,5 +10,27 @@
     right: 95%;
 }
 .answer{
-    font-size: 15.5px;
+    font-size: 15.5px !important;
 }
+@media only screen and (max-width: 600px) {
+    .faqWidget{
+        width: 100% !important;
+        height: 50% !important;
+        position: relative;
+        left: -13%;
+        padding-right: 20px;
+        margin-bottom: 10%;
+    }
+    .answer{
+        font-size: 13px !important;
+        text-align: justify;
+    }
+    .question{
+        padding-left: 10% !important;
+    }
+    .imgFrame{
+        left: -23%;
+        z-index: 1;
+        width: 25%;
+    }
+  }

@@ -21,7 +21,7 @@ function HomePage() {
       <div>
         {showMoodCards ? (
           <>
-            <Question submain={'Дозволете ни да ве водиме'} main={'Како се чувствуваш?'} />
+            <Question className="quest" submain={'Дозволете ни да ве водиме'} main={'Како се чувствуваш?'} />
             <div className="bigLine"></div>
             <MoodCardsLayout
               anxietyfeel={"Aнксиозност"}

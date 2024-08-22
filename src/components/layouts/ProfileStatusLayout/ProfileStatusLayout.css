@@ -16,19 +16,19 @@
     height: 400px;
 }
 .styleWidget1{
-    padding: 2%;
-    height: 60px;
-    font-size: clamp(1px, 2.5vw, 20px);
+    padding-top: 2%;
+    height: 50px;
+    font-size: clamp(1px, 2.5vw, 20px) !important;
 }
 .styleWidget2{
-    padding: 2%;
-    height: 60px;
-    font-size: clamp(1px, 2.5vw, 20px);
+    padding-top: 2%;
+    height: 50px;
+    font-size: clamp(1px, 2.5vw, 20px) !important;
 }
 .styleWidget3{
-    padding: 2%;
-    height: 60px;
-    font-size: clamp(1px, 2.5vw, 20px);
+    padding-top: 2%;
+    height: 50px;
+    font-size: clamp(1px, 2.5vw, 20px) !important;
 }
 .styleWidget4{
     line-height: 5px;
@@ -38,7 +38,7 @@
     top: 28%;
     font-weight: bolder;
     padding: 0.5%;
-    font-size: clamp(1px, 2.5vw, 20px);
+    font-size: clamp(1px, 2.5vw, 20px) !important;
 }
 .categoryWidget{
     display: flex;

@@ -78,7 +78,7 @@ function QuestionLayout() {
         ) : (
           <>
             <div key={currentQuestioN.id}>
-              <Question submain={currentQuestioN.quation} />
+              <Question className="quest" submain={currentQuestioN.quation} />
             </div>
             <div className="bigLine"></div>
             <AnswerLayout answers={[{ text: currentQuestioN.answer1, value: "easy" }, { text: currentQuestioN.answer2, value: "medium" }, { text: currentQuestioN.answer3, value: "hard" }]} onAnswerClick={handleNextQuestion} />

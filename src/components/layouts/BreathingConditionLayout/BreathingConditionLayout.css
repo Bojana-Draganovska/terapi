@@ -23,8 +23,14 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     background-color: #F2DFD1;
     color: #DD1E85;
-    width: 25%;
+    width: 25% !important;
     font-size: 20px;
     cursor: pointer;
     border: 0;
 }
+@media only screen and (max-width: 600px) {
+    .btnLogin1{
+        width: 100% !important;
+        top: 3%;
+    }
+  }

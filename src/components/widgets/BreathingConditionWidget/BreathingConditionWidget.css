@@ -3,7 +3,7 @@
 }
 
 .title img{
-    width: 4%;
+    width: 4% !important;
 }
 
 .breathingCondition{
@@ -22,5 +22,23 @@
     flex-direction: column;
     text-align: left;
     width: 67%;
-    font-size: 18px;
+    font-size: 18px !important;
 }
+@media only screen and (max-width: 600px) {
+    .breathingCondition {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .breathingConditionImage{
+        width: 100%;
+    }
+    .breathingConditionInfo{
+        font-size: 15px !important;
+        width: 100%;
+        text-align: justify;
+    }
+    .title img{
+        width: 10% !important;
+    }
+  }

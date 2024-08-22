@@ -33,3 +33,14 @@
   left: 50px;
   font-size: 20px;
 }
+@media only screen and (max-width: 600px) {
+  .quest {
+    text-align: center !important;
+  }
+  .textP{
+    left: 6%;
+    text-align: justify;
+    word-spacing: 10px;
+    font-size: 25px !important;
+  }
+}
