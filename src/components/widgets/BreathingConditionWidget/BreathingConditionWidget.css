@@ -3,7 +3,7 @@
 }
 
 .title img{
-    width: 4% !important;
+    width: 4%;
 }
 
 .breathingCondition{
@@ -22,7 +22,7 @@
     flex-direction: column;
     text-align: left;
     width: 67%;
-    font-size: 18px !important;
+    font-size: 18px;
 }
 @media only screen and (max-width: 600px) {
     .breathingCondition {

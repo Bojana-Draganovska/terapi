@@ -183,3 +183,10 @@
     color: #D21890;
     font-weight: bold;
 }
+@media only screen and (max-width: 600px){
+    .progressContainter{
+        left: 50%;
+        top:  57%;
+        z-index: 1;
+    }
+}

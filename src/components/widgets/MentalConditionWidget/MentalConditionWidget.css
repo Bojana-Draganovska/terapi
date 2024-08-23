@@ -3,7 +3,7 @@
 }
 
 .title img{
-    width: 4% !important;
+    width: 4%;
 }
 
 .mentalCondition{
@@ -22,7 +22,7 @@
     flex-direction: column;
     text-align: left;
     width: 67%;
-    font-size: 16.7px !important;
+    font-size: 16.7px;
 }
 @media only screen and (max-width: 600px) {
     .mentalCondition {

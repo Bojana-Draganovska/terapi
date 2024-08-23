@@ -1,8 +1,8 @@
 .faqWidget{
     border: 1px solid black;
     border-radius: 15px;
-    font-size: 15px !important;
-    width: 75% !important;
+    font-size: 15px;
+    width: 75%;
 }
 .imgFrame{
     width: 7%;
@@ -10,7 +10,7 @@
     right: 95%;
 }
 .answer{
-    font-size: 15.5px !important;
+    font-size: 15.5px;
 }
 @media only screen and (max-width: 600px) {
     .faqWidget{

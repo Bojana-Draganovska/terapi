@@ -106,7 +106,7 @@ const PersonalizationWidget = () => {
                         <select size="4" onChange={handleComponentChange} value={selectedComponent}>
                             <option value="navbar">Навигациско мени</option>
                             <option value="button">Копчиња</option>
-                            <option value="text">Параграф</option>
+                            <option value="text">Текст</option>
                             <option value="EntireApp">Цела позадина</option>
                         </select>
                     </div>

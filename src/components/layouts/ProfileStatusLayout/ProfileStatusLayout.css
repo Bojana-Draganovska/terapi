@@ -18,17 +18,17 @@
 .styleWidget1{
     padding-top: 2%;
     height: 50px;
-    font-size: clamp(1px, 2.5vw, 20px) !important;
+    font-size: clamp(1px, 2.5vw, 20px);
 }
 .styleWidget2{
     padding-top: 2%;
     height: 50px;
-    font-size: clamp(1px, 2.5vw, 20px) !important;
+    font-size: clamp(1px, 2.5vw, 20px);
 }
 .styleWidget3{
     padding-top: 2%;
     height: 50px;
-    font-size: clamp(1px, 2.5vw, 20px) !important;
+    font-size: clamp(1px, 2.5vw, 20px);
 }
 .styleWidget4{
     line-height: 5px;
@@ -38,7 +38,7 @@
     top: 28%;
     font-weight: bolder;
     padding: 0.5%;
-    font-size: clamp(1px, 2.5vw, 20px) !important;
+    font-size: clamp(1px, 2.5vw, 20px);
 }
 .categoryWidget{
     display: flex;
@@ -383,3 +383,156 @@
     width: 20%;
     font-size: clamp(1px, 2.5vw, 18px);
 }
+@media only screen and (max-width: 600px) {
+    .profileWidgetStatus{
+        width: 80% !important;
+        left: 1%;
+        height: 45%;
+    }
+    .buttonsProfile{
+        width: 75% !important;
+        bottom: 32%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 50%;
+    }
+    .buttonProfile{
+        font-size: 17px !important;
+    }
+    .profileStatusLayout{
+        width: 80% !important;
+        top: 80%;
+        left: 10%;
+        height: 50%;
+    }
+    .styleWidget1{
+        font-size: 16px !important;
+    }
+    .styleWidget2{
+        font-size: 16px !important;
+    }
+    .styleWidget3{
+        font-size: 16px !important;
+    }
+    .styleWidget4{
+        width: 35% !important;
+        top: 78%;
+        left: 33%;
+        font-size: 15px !important;
+    }
+    .imgFrame1{
+        top: 6%;
+    }
+    .imgFrame2{
+        top: 36%;
+    }
+    .imgFrame3{
+        top: 65%;
+    }
+    .imgFrame4{
+        top: 77%;
+        left: 35%;
+    }
+    .predizviciIPoeni{
+        width: 100% !important;
+        left: 5%;
+        top: 1%;
+    }
+    .imgFramePred1{
+        top: 56%;
+    }
+    .dayDetail{
+        width: 130%;
+        left: 0.5%;
+        top: 10%;
+    }
+    .imgFrame2_1{
+        top: 1%;
+    }
+    .btnFinish{
+        width: 50% !important;
+        top: 15%;
+    }
+    .linenext{
+        left: 82%;
+        top: 62%;
+    }
+    .lineback{
+        right: 82%;
+        top: 62%;
+    }
+    .back{
+        width: 50% !important;
+        top: 73%;
+        left: 25%;
+        height: 7%;
+    }
+    .imgFramee{
+        width: 40%;
+        height: 20%;
+        left: 63%;
+        top: 80%;
+    }
+    .filterDataCategory{
+        width: 100%;
+    }
+    .imgFrames{
+        bottom: 30%;
+        left: 45%;
+    }
+    .changeVoice{
+        width: 80% !important;
+        left: 10%;
+        top: 10%;
+    }
+    .playMode{
+        width: 10%;
+        position: relative;
+        left: 10%;
+    }
+    .playAndStop{
+        position: relative;
+        left: 330%;
+    }
+    .input1{
+        width: 30%;
+        left: 53%;
+        bottom: 56%;
+    }
+    .input2{
+        width: 30%;
+        left: 53%;
+        bottom: 51%;
+    }
+    .input3{
+        width: 30%;
+        left: 53%;
+        bottom: 45%;
+    }
+    .buttonAzuriraj{
+        width: 50% !important;
+        left: 25%;
+        bottom: 35%;
+    }
+    .pregledNaPodatoci1{
+        width: 53%;
+        top: 28.5%;
+        overflow: scroll;
+    }
+    .pregledNaPodatoci2{
+        width: 68%;
+        top: 37.5%;
+        padding: 0%;
+        line-height: 55px;
+    }
+    .pregledNaPodatoci3{
+        width: 53%;
+        top: 47%;
+    }
+    .pregledNaPodatoci4{
+        width: 60%;
+        top: 56%;
+        z-index: 1;
+    }
+  }
